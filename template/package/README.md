@@ -1,0 +1,1 @@
+# <%= justName ? pkgName : ('@anybuild/'+ pkgName) %>

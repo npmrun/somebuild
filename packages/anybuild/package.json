@@ -1,0 +1,29 @@
+{
+    "name": "anybuild",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "",
+    "main": "./dist/bin.js",
+    "types": "./dist/bin.d.ts",
+    "bin": {
+        "anybuild": "./dist/bin.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "tsup --watch --env.NODE_ENV development",
+        "build": "tsup --env.NODE_ENV production"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "commander": "^10.0.1"
+    },
+    "devDependencies": {
+        "@anybuild/check": "workspace:^0.0.1",
+        "@anybuild/shared": "workspace:^0.0.1",
+        "@anybuild/utils": "workspace:^0.0.1"
+    }
+}

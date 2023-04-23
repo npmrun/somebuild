@@ -1,0 +1,12 @@
+{
+    "name": "cli-test",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "build": "anybuild"
+    },
+    
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

@@ -1,0 +1,15 @@
+{
+    "extends": "@noderun/tsconfig/base.json",
+    "compilerOptions": {
+        "module": "esnext",
+        "isolatedModules": false,
+        "baseUrl": ".",
+        "paths": {
+            "anybuild": ["packages/anybuild/src"],
+            "@anybuild/*": ["packages/*/src"],
+        }
+    },
+    "include": ["packages"],
+    "exclude": ["node_modules"],
+    "references": [{ "path": "./tsconfig.node.json" }]
+}

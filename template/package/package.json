@@ -1,0 +1,11 @@
+{
+    "name": "<%= justName ? pkgName : ('@anybuild/'+ pkgName) %>",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "<%= pkgDesc %>",
+    "main": "dist/<%= pkgName %>.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "noderun",
+    "license": "ISC"
+}
