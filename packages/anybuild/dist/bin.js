@@ -51,6 +51,8 @@ var init_src2 = __esm({
 // src/index.ts
 init_src();
 import { Command } from "commander";
+import { createRequire } from "node:module";
+var require2 = createRequire(import.meta.url);
 var program = new Command();
 program.name("anybuild");
 program.version("0.0.1", "-v, --version").description("\u67E5\u770B\u5F53\u524D\u7248\u672C\u53F7");
@@ -66,6 +68,10 @@ try {
 program.option("-w, --watch", "\u5F00\u53D1\u6A21\u5F0F").option("-s, --site", "\u7AD9\u70B9\u6A21\u5F0F").option("--ssr", "ssr\u6A21\u5F0F").option("-d, --debug [value]", "Debug\u65E5\u5FD7").description("\u6784\u5EFA").action(async ({ watch, debug, site, ssr }) => {
   if (reportErrorMessage) {
     error(reportErrorMessage, "exit");
+  }
+  try {
+    const mod = await import("@anybuild/build-lib");
+  } catch (error2) {
   }
 });
 program.command("init").description("\u521D\u59CB\u5316\u9879\u76EE").action(async ({}) => {

@@ -1,6 +1,8 @@
 import { Command } from 'commander'
-import { error, logRed } from '@anybuild/utils'
-import { createRequire } from 'node:module'
+import { error } from '@anybuild/utils'
+import { createRequire } from "node:module"
+
+const require = createRequire(import.meta.url)
 
 const program = new Command()
 
@@ -27,6 +29,11 @@ program
     .action(async ({ watch, debug, site, ssr }) => {
         if (reportErrorMessage) {
             error(reportErrorMessage, "exit")
+        }
+        try {
+            const mod = await import("@anybuild/build-lib")
+        } catch (error) {
+            
         }
     })
 

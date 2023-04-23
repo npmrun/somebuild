@@ -5,16 +5,9 @@ export default defineConfig((options) => {
     const isDev = options.watch
     const dependencies = pkg['dependencies'] ?? {}
     let externals = Array.from(new Set([...Object.keys(dependencies)]))
-    externals = externals.concat([
-        'commander',
-        'chalk',
-        'fs-extra',
-        '@niu-tools/core',
-        '@anybuild/build-lib',
-    ])
     return {
         entry: {
-            bin: 'src/index.ts',
+            ['build-lib']: 'src/index.ts',
         },
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,
@@ -26,7 +19,6 @@ export default defineConfig((options) => {
             __NAME__: `"${pkg.name}"`,
             __VERSION__: `"${pkg.version}"`,
         },
-        banner: { js: '#!/usr/bin/env node' },
         external: externals,
         minify: !isDev,
     }

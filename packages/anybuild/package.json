@@ -22,8 +22,9 @@
         "commander": "^10.0.1"
     },
     "devDependencies": {
-        "@anybuild/check": "workspace:^0.0.1",
-        "@anybuild/shared": "workspace:^0.0.1",
-        "@anybuild/utils": "workspace:^0.0.1"
+        "@anybuild/check": "workspace:*",
+        "@anybuild/shared": "workspace:*",
+        "@anybuild/utils": "workspace:*",
+        "@anybuild/build-lib": "workspace:*"
     }
 }

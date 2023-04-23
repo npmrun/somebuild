@@ -4,6 +4,7 @@
     "type": "module",
     "description": "<%= pkgDesc %>",
     "main": "dist/<%= pkgName %>.js",
+    "types": "dist/<%= pkgName %>.d.ts",
     "scripts": {},
     "keywords": [],
     "author": "noderun",
