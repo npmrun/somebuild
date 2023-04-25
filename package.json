@@ -2,12 +2,12 @@
     "private": true,
     "scripts": {
         "new": "tsx scripts/new.ts",
-        "dev": "pnpm --filter=anybuild dev",
+        "dev": "tsx scripts/dev.ts",
         "preinstall": "npx only-allow pnpm",
         "postinstall": "pnpm build:cli",
         "poststop": "pnpm i",
         "build:cli": "turbo run build --filter anybuild...",
-        "dev:cli": "tsx scripts/dev.ts",
+        "dev:cli": "turbo run dev --filter anybuild...",
         "commit": "changeset",
         "version": "changeset version"
     },

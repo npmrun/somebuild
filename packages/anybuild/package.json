@@ -12,7 +12,7 @@
         "dist"
     ],
     "scripts": {
-        "dev": "tsup --watch",
+        "dev": "cd ../.. && tsx scripts/dev.ts",
         "build": "tsup"
     },
     "keywords": [],
