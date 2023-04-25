@@ -6,13 +6,13 @@
         "preinstall": "npx only-allow pnpm",
         "postinstall": "pnpm build:cli",
         "poststop": "pnpm i",
-        "build:cli": "turbo run build --filter anybuild",
-        "dev:cli": "turbo run dev --filter anybuild",
+        "build:cli": "turbo run build --filter anybuild...",
+        "dev:cli": "tsx scripts/dev.ts",
         "commit": "changeset",
         "version": "changeset version"
     },
     "keywords": [],
-    "author": "",
+    "author": "npmrun",
     "license": "ISC",
     "devDependencies": {
         "@changesets/cli": "^2.26.1",

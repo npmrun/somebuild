@@ -5,7 +5,7 @@
     "scripts": {
         "build": "anybuild"
     },
-    
+    "buildinfo": {},
     "keywords": [],
     "author": "",
     "license": "ISC"

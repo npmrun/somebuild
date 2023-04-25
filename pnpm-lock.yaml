@@ -46,17 +46,11 @@ importers:
   packages/anybuild:
     specifiers:
       '@anybuild/build-lib': workspace:*
-      '@anybuild/check': workspace:*
-      '@anybuild/shared': workspace:*
-      '@anybuild/utils': workspace:*
       commander: ^10.0.1
     dependencies:
       commander: 10.0.1
     devDependencies:
       '@anybuild/build-lib': link:../build-lib
-      '@anybuild/check': link:../check
-      '@anybuild/shared': link:../shared
-      '@anybuild/utils': link:../utils
 
   packages/build-lib:
     specifiers:

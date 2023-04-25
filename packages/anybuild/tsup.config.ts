@@ -26,6 +26,8 @@ export default defineConfig((options) => {
             __NAME__: `"${pkg.name}"`,
             __VERSION__: `"${pkg.version}"`,
         },
+        replaceNodeEnv: true,
+        treeshake: true,
         banner: { js: '#!/usr/bin/env node' },
         external: externals,
         minify: !isDev,

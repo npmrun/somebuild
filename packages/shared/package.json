@@ -1,9 +1,8 @@
 {
     "name": "@anybuild/shared",
-    "private": true,
     "version": "0.0.1",
     "description": "",
-    "main": "dist/shared.js",
+    "main": "dist/shared.mjs",
     "scripts": {},
     "keywords": [],
     "author": "noderun",

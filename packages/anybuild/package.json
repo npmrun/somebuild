@@ -12,8 +12,8 @@
         "dist"
     ],
     "scripts": {
-        "dev": "tsup --watch --env.NODE_ENV development",
-        "build": "tsup --env.NODE_ENV production"
+        "dev": "tsup --watch",
+        "build": "tsup"
     },
     "keywords": [],
     "author": "",
@@ -22,9 +22,6 @@
         "commander": "^10.0.1"
     },
     "devDependencies": {
-        "@anybuild/check": "workspace:*",
-        "@anybuild/shared": "workspace:*",
-        "@anybuild/utils": "workspace:*",
         "@anybuild/build-lib": "workspace:*"
     }
 }

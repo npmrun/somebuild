@@ -1,9 +1,8 @@
 {
     "name": "@anybuild/utils",
-    "private": true,
     "version": "0.0.1",
     "description": "anybuild工具包",
-    "main": "dist/utils.js",
+    "main": "dist/utils.mjs",
     "scripts": {},
     "keywords": [],
     "author": "noderun",

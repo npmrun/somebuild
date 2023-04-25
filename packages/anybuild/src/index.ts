@@ -1,8 +1,5 @@
 import { Command } from 'commander'
 import { error } from '@anybuild/utils'
-import { createRequire } from "node:module"
-
-const require = createRequire(import.meta.url)
 
 const program = new Command()
 
