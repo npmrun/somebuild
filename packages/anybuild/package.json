@@ -13,13 +13,16 @@
     ],
     "scripts": {
         "dev": "cd ../.. && tsx scripts/dev.ts",
-        "build": "tsup"
+        "build": "cd ../.. && tsx scripts/build.ts"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
         "commander": "^10.0.1"
+    },
+    "optionalDependencies": {
+        "@anybuild/build-lib": "*"
     },
     "devDependencies": {
         "@anybuild/build-lib": "workspace:*"

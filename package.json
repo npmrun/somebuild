@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "new": "tsx scripts/new.ts",
-        "dev": "tsx scripts/dev.ts",
+        "dev": "pnpm dev:cli",
         "preinstall": "npx only-allow pnpm",
         "postinstall": "pnpm build:cli",
         "poststop": "pnpm i",

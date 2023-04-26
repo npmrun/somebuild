@@ -12,7 +12,14 @@
     "keywords": [],
     "author": "noderun",
     "license": "ISC",
+    "peerDependencies": {
+        "anybuild": "*"
+    },
     "dependencies": {
-        "tsup": "^6.7.0"
+        "@noderun/loadconfig": "^0.0.2",
+        "fs-extra": "^11.1.1",
+        "lodash-es": "^4.17.21",
+        "tsup": "^6.7.0",
+        "typescript": "^5.0.4"
     }
 }

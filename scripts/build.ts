@@ -1,7 +1,7 @@
 import { build } from 'tsup'
 
 const pkg = require(`../packages/anybuild/package.json`)
-const isDev = true
+const isDev = false
 const dependencies = pkg['dependencies'] ?? {}
 let externals = Array.from(new Set([...Object.keys(dependencies)]))
 externals = externals.concat([
@@ -21,7 +21,7 @@ build({
     watch: isDev,
     format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
     dts: true,
-    splitting: false,
+    splitting: !isDev,
     sourcemap: true,
     clean: true,
     outExtension({ format }) {

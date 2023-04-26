@@ -19,6 +19,11 @@ export default defineConfig((options) => {
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,
         splitting: false,
+        outExtension({ format }) {
+            return {
+              js: `.js`,
+            }
+        },
         sourcemap: true,
         clean: true,
         define: {

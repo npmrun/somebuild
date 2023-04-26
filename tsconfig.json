@@ -9,7 +9,7 @@
             "@anybuild/*": ["packages/*/src"],
         }
     },
-    "include": ["packages"],
+    "include": ["packages", "typings"],
     "exclude": ["node_modules"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,10 @@
 import { Command } from 'commander'
 import { error } from '@anybuild/utils'
+import { buildinfo } from '@anybuild/shared'
+
+export * from '@anybuild/shared'
+export * from '@anybuild/check'
+export * from '@anybuild/utils'
 
 const program = new Command()
 
@@ -12,7 +17,6 @@ let reportErrorMessage
 
 try {
     await import('@anybuild/check')
-    reportErrorMessage = undefined
 } catch (error) {
     reportErrorMessage = error.message
 }
@@ -24,13 +28,31 @@ program
     .option('-d, --debug [value]', 'Debug日志')
     .description('构建')
     .action(async ({ watch, debug, site, ssr }) => {
+        // 如果不存在buildinfo字段则报错
         if (reportErrorMessage) {
-            error(reportErrorMessage, "exit")
+            error(reportErrorMessage, 'exit')
         }
-        try {
-            const mod = await import("@anybuild/build-lib")
-        } catch (error) {
-            
+        if (debug) {
+            // 开启日志
+            process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
+        }
+        const isDev = !!watch
+        buildinfo.watch = isDev
+        switch (buildinfo.mode) {
+            case 'lib':
+                try {
+                    const { default: build } = await import(
+                        '@anybuild/build-lib'
+                    )
+                    build?.()
+                } catch (error) {
+                    throw error
+                }
+                break
+
+            default:
+                error('无正确匹配的mode')
+                break
         }
     })
 
