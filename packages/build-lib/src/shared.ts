@@ -32,15 +32,14 @@ export function getAnybuildConfig() {
 export async function getAnybuildConfigAsync() {
     let _config = getBuildinfo()
     const isDev = !!_config.watch
-    console.log(cwdDir);
-    
-    if (fs.pathExistsSync(path.resolve(cwdDir, "anybuild.config.ts"))) {
+
+    if (fs.pathExistsSync(path.resolve(cwdDir, "anybuild.config.mts"))) {
         holder.userConfig = await loadConfigFromFile(
             {
                 mode: isDev ? "development" : "production",
                 command: isDev ? 'serve' : 'build'
             },
-            "anybuild.config.ts",
+            "anybuild.config.mts",
             cwdDir
         ) as any
     }
