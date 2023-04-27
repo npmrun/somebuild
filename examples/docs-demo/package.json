@@ -1,0 +1,17 @@
+{
+    "name": "docs-demo",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "dev": "anybuild docs"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "anybuild": "workspace:*",
+        "@anybuild/build-docs": "workspace:*",
+        "@anybuild/build-lib": "workspace:*",
+        "vue": "^3.2.47"
+    }
+}

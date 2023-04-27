@@ -22,10 +22,10 @@ export default defineConfig((options) => {
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,
         silent: true,
-        splitting: false,
+        splitting: isDev ? false : true,
         outExtension({ format }) {
             return {
-              js: `.js`,
+                js: `.js`,
             }
         },
         sourcemap: true,

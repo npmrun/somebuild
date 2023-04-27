@@ -1,4 +1,4 @@
-import { getAnybuildConfig, getInfo } from 'anybuild'
+import { getAnybuildConfig } from 'anybuild'
 import path from 'node:path'
 import { fileURLToPath } from 'url'
 

@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "resolveJsonModule": true,
+        "jsx": "preserve",
+        "target": "ESNext",
+        "module": "ESNext",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "test-vue3-ui/dist/*": ["src/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"],
+    "references": [
+        {
+            "path": "./tsconfig.anybuild.json"
+        }
+    ]
+}

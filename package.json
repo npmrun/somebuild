@@ -3,6 +3,7 @@
     "scripts": {
         "new": "tsx scripts/new.ts",
         "dev": "pnpm dev:cli",
+        "build": "pnpm build:cli",
         "preinstall": "npx only-allow pnpm",
         "postinstall": "pnpm build:cli",
         "poststop": "pnpm i",

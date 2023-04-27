@@ -16,7 +16,6 @@ program.showHelpAfterError(`(${__NAME__} -h 查看帮助信息)`)
 program
     .command('docs')
     .option('-w, --watch', '开发模式')
-    .option('-s, --site', '站点模式')
     .option('--ssr', 'ssr模式')
     .option('-d, --debug [value]', 'Debug日志')
     .description('构建静态文档网站')

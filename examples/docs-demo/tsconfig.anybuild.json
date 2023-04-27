@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "types": ["@anybuild/build-docs/type"]
+    },
+    "include": [".anybuild/**/*"]
+}

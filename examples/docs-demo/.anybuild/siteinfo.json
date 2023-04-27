@@ -1,0 +1,51 @@
+{
+    "title": "Feather UI",
+    "description": "轻羽UI",
+    "favicon": "https://fastly.jsdelivr.net/npm/@vant/assets/logo.png",
+    "meta": [{ "name": "a", "content": "b" }],
+    "navbar": [
+        {
+            "title": "首页",
+            "path": "docs/home"
+        },
+        {
+            "title": "组件",
+            "path": "button"
+        }
+    ],
+    "action": [
+        {
+            "title": "关于",
+            "path": "docs/about"
+        }
+    ],
+    "sidebar": [
+        {
+            "title": "基础组件",
+            "items": [
+                {
+                    "title": "关于",
+                    "path": "docs/about"
+                },
+                {
+                    "title": "Button 按钮",
+                    "type": "pc",
+                    "path": "button"
+                },
+                {
+                    "title": "Input 输入框",
+                    "type": "mobile",
+                    "path": "input"
+                },
+                {
+                    "title": "Space 输入框",
+                    "type": "pc",
+                    "path": "space"
+                }
+            ]
+        },
+        {
+            "title": "扩展组件"
+        }
+    ]
+}
