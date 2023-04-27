@@ -1,5 +1,7 @@
 import chalk from 'chalk'
 
+export * from "./config"
+
 export function error(message: string, willExit?: 'exit') {
     if (willExit === 'exit') {
         // process.exit(-1)

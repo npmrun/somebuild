@@ -1,18 +1,14 @@
 import { isObject, isString } from 'anybuild'
 import tsup, { Options } from 'tsup'
 import {
-    getAnybuildConfigAsync,
-    getAnybuildConfig,
-    getBuildinfo,
+    getBuildinfo, getConfig,
 } from './shared'
 
 export * from './shared'
 
 export default async function () {
-    await getAnybuildConfigAsync()
-
     const buildinfo = getBuildinfo()
-    const _config = getAnybuildConfig()?.config ?? {}
+    const _config = getConfig()?.config ?? {}
     const isDev = buildinfo.watch
 
     if (_config.overide) {

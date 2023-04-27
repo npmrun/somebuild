@@ -11,6 +11,8 @@ externals = externals.concat([
     '@niu-tools/core',
     'anybuild',
     '@anybuild/build-lib',
+    '@anybuild/build-docs',
+    '@noderun/loadconfig',
 ])
 
 build({

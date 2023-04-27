@@ -19,12 +19,17 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "commander": "^10.0.1"
+        "@noderun/loadconfig": "^0.0.2",
+        "chalk": "^5.2.0",
+        "commander": "^10.0.1",
+        "fs-extra": "^11.1.1"
     },
     "optionalDependencies": {
+        "@anybuild/build-docs": "*",
         "@anybuild/build-lib": "*"
     },
     "devDependencies": {
+        "@anybuild/build-docs": "workspace:*",
         "@anybuild/build-lib": "workspace:*"
     }
 }

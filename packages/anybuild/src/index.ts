@@ -1,10 +1,10 @@
 import { Command } from 'commander'
-import { error } from '@anybuild/utils'
-import { buildinfo } from '@anybuild/shared'
+import { getMode } from './check'
+import { error, getAnybuildConfigAsync } from './utils'
 
-export * from '@anybuild/shared'
-export * from '@anybuild/check'
-export * from '@anybuild/utils'
+// export * from './shared'
+export { getInfo } from './check'
+export * from './utils'
 
 const program = new Command()
 
@@ -13,13 +13,29 @@ program.version(__VERSION__, '-v, --version').description('查看当前版本号
 program.helpOption('-h --help', '显示帮助信息')
 program.showHelpAfterError(`(${__NAME__} -h 查看帮助信息)`)
 
-let reportErrorMessage
-
-try {
-    await import('@anybuild/check')
-} catch (error) {
-    reportErrorMessage = error.message
-}
+program
+    .command('docs')
+    .option('-w, --watch', '开发模式')
+    .option('-s, --site', '站点模式')
+    .option('--ssr', 'ssr模式')
+    .option('-d, --debug [value]', 'Debug日志')
+    .description('构建静态文档网站')
+    .action(async ({ watch, debug, site, ssr }) => {
+        if (debug) {
+            // 开启日志
+            process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
+        }
+        const isDev = !!watch
+        process.env.WATCH = isDev
+        await getAnybuildConfigAsync()
+        try {
+            // @ts-ignore
+            const { default: build } = await import('@anybuild/build-docs')
+            build?.()
+        } catch (error) {
+            throw error
+        }
+    })
 
 program
     .option('-w, --watch', '开发模式')
@@ -29,18 +45,18 @@ program
     .description('构建')
     .action(async ({ watch, debug, site, ssr }) => {
         // 如果不存在buildinfo字段则报错
-        if (reportErrorMessage) {
-            error(reportErrorMessage, 'exit')
-        }
+        const mode = getMode()
         if (debug) {
             // 开启日志
             process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
         }
         const isDev = !!watch
-        buildinfo.watch = isDev
-        switch (buildinfo.mode) {
+        process.env.WATCH = isDev
+        await getAnybuildConfigAsync()
+        switch (mode) {
             case 'lib':
                 try {
+                    // @ts-ignore
                     const { default: build } = await import(
                         '@anybuild/build-lib'
                     )
@@ -49,7 +65,6 @@ program
                     throw error
                 }
                 break
-
             default:
                 error('无正确匹配的mode')
                 break

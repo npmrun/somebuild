@@ -16,7 +16,6 @@
         "anybuild": "*"
     },
     "dependencies": {
-        "@noderun/loadconfig": "^0.0.2",
         "fs-extra": "^11.1.1",
         "lodash-es": "^4.17.21",
         "tsup": "^6.7.0",

@@ -11,6 +11,8 @@ externals = externals.concat([
     '@niu-tools/core',
     'anybuild',
     '@anybuild/build-lib',
+    '@anybuild/build-docs',
+    '@noderun/loadconfig',
 ])
 
 build({
@@ -21,6 +23,7 @@ build({
     watch: isDev,
     format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
     dts: true,
+    tsconfig: "tsconfig.build.json",
     splitting: false,
     sourcemap: true,
     clean: true,

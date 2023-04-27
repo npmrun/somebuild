@@ -5,13 +5,11 @@
     "scripts": {
         "build": "anybuild"
     },
-    "buildinfo": {
-        "mode": "lib"
-    },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@anybuild/build-lib": "workspace:*"
+        "@anybuild/build-lib": "workspace:*",
+        "@anybuild/build-docs": "workspace:*"
     }
 }

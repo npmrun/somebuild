@@ -2,15 +2,6 @@ declare const __NAME__: string
 declare const __VERSION__: string
 declare const __DEV__: boolean
 
-interface IBuildInfoTsup<T extends 'lib'> {
-    engine?: 'tsup'
-    mode: T
-    watch: boolean
-    outDir: string
-    name: string
-    entry: string[] | Record<string, string> | string
-}
-
 interface IBuildInfoVite<T extends 'components-vue3' | 'component-vue3'> {
     engine?: 'vite'
     mode: T
@@ -19,5 +10,15 @@ interface IBuildInfoVite<T extends 'components-vue3' | 'component-vue3'> {
     entry: string
     componentsName: string
 }
+type IBuildInfo = any
 
-type IBuildInfo = IBuildInfoTsup | IBuildInfoVite
+declare module 'process' {
+    global {
+        var process: NodeJS.Process
+        namespace NodeJS {
+            interface ProcessEnv extends Dict<string> {
+                WATCH: boolean | undefined
+            }
+        }
+    }
+}

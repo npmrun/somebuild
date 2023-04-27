@@ -17,7 +17,7 @@ export default defineConfig((options) => {
     ])
     return {
         entry: {
-            ['build-lib']: 'src/index.ts',
+            ['build-docs']: 'src/node/index.ts',
         },
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,
