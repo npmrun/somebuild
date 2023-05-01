@@ -3,9 +3,9 @@
     "changelog": "@changesets/cli/changelog",
     "commit": false,
     "fixed": [],
-    "linked": ["anybuild", "@anybuild/*"],
+    "linked": [["anybuild"], ["@anybuild/*"]],
     "access": "restricted",
     "baseBranch": "master",
     "updateInternalDependencies": "patch",
-    "ignore": []
+    "ignore": ["!anybuild", "!@anybuild/*"]
 }
