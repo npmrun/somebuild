@@ -64,7 +64,7 @@ export async function getDevConfig(
     }
     if (!isSSR && !isPreRender) {
         alias['vue'] = path.resolve(
-            rootDir,
+            cwdDir,
             'node_modules/vue',
             'dist',
             'vue.runtime.esm-bundler.js'
