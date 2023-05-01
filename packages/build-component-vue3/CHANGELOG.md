@@ -1,5 +1,13 @@
 # @somebuild/build-component-vue3
 
+## 0.0.5
+
+### Patch Changes
+
+- 0.0.5
+- Updated dependencies
+  - somebuild@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
