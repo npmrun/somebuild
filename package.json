@@ -10,7 +10,8 @@
         "build:cli": "turbo run build --filter somebuild...",
         "dev:cli": "turbo run dev --filter somebuild...",
         "commit": "changeset",
-        "version": "changeset version"
+        "version": "changeset version",
+        "release": "pnpm --filter './packages/**' publish --access public"
     },
     "keywords": [],
     "author": "npmrun",
