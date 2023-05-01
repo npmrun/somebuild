@@ -1,6 +1,6 @@
 {
     "name": "@somebuild/build-docs",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "type": "module",
     "description": "生成文档，类似于vitepress",
     "main": "dist/build-docs.js",
