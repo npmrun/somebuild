@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { getMode } from './check'
-import { error, getsomebuildConfigAsync } from './utils'
+import { error, getSomeBuildConfigAsync } from './utils'
 
 // export * from './shared'
 export { getInfo } from './check'
@@ -30,7 +30,7 @@ program
         }else{
             Reflect.deleteProperty(process.env, "WATCH")
         }
-        await getsomebuildConfigAsync()
+        await getSomeBuildConfigAsync()
         try {
             // @ts-ignore
             const { default: build } = await import('@somebuild/build-docs')
@@ -59,7 +59,7 @@ program
         }else{
             Reflect.deleteProperty(process.env, "WATCH")
         }
-        await getsomebuildConfigAsync()
+        await getSomeBuildConfigAsync()
         switch (mode) {
             case 'lib':
                 try {

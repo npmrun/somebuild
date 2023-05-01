@@ -1,4 +1,4 @@
-import { getsomebuildConfig } from 'somebuild'
+import { getSomeBuildConfig } from 'somebuild'
 import path from 'node:path'
 import { fileURLToPath } from 'url'
 
@@ -34,7 +34,7 @@ export function defineConfig(config: IsomebuildConfigByDocs) {
  * 获取somebuild.config.mts配置文件
  */
 export function getConfig() {
-    let config = getsomebuildConfig<IsomebuildConfigByDocs>()
+    let config = getSomeBuildConfig<IsomebuildConfigByDocs>()
     if (!config) {
         config = {
             path: path.resolve(cwdDir, 'somebuild.config.mts'),

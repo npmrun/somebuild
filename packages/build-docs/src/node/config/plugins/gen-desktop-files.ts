@@ -4,7 +4,7 @@ import { ModuleNode, normalizePath, Plugin } from 'vite'
 import fs from 'fs-extra'
 import chalk from 'chalk'
 import lodash from 'lodash-es'
-import { clientDir, cwdDir, getConfig } from '@/shared'
+import { clientDir, cwdDir, getConfig } from '../../../shared'
 
 const virtualDesktopModuleId = 'site-desktop-shared'
 const virtualDesktopInfoModuleId = 'site-desktop-info'

@@ -22,7 +22,7 @@ export default defineConfig((options) => {
         },
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,
-        silent: true,
+        silent: isDev,
         splitting: isDev ? false : true,
         outExtension({ format }) {
             return {

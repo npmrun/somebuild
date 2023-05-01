@@ -11,11 +11,11 @@ export interface IConfig<T extends any> {
 
 let userConfig
 
-export function getsomebuildConfig<T>() {
+export function getSomeBuildConfig<T>() {
     return userConfig as IConfig<T>
 }
 
-export async function getsomebuildConfigAsync() {
+export async function getSomeBuildConfigAsync() {
     if (fs.pathExistsSync(path.resolve(cwdDir, 'somebuild.config.mts'))) {
         userConfig = (await loadConfigFromFile(
             {

@@ -1,4 +1,4 @@
-import { getsomebuildConfig, getInfo } from 'somebuild'
+import { getSomeBuildConfig, getInfo } from 'somebuild'
 
 
 interface IBuildInfoTsup {
@@ -40,7 +40,7 @@ export function defineConfig(config: IsomebuildConfigByComponent) {
  * 获取somebuild.config.mts配置文件
  */
 export function getConfig() {
-    let config = getsomebuildConfig<IsomebuildConfigByComponent>()
+    let config = getSomeBuildConfig<IsomebuildConfigByComponent>()
     // if (!config) {
     //     config = {
     //     }
