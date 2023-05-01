@@ -26,10 +26,12 @@
     },
     "optionalDependencies": {
         "@anybuild/build-docs": "*",
-        "@anybuild/build-lib": "*"
+        "@anybuild/build-lib": "*",
+        "@anybuild/build-component-vue3": "*"
     },
     "devDependencies": {
         "@anybuild/build-docs": "workspace:*",
-        "@anybuild/build-lib": "workspace:*"
+        "@anybuild/build-lib": "workspace:*",
+        "@anybuild/build-component-vue3": "workspace:*"
     }
 }

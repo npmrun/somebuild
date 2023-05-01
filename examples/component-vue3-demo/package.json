@@ -1,0 +1,23 @@
+{
+    "name": "component-vue3-demo",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "dev": "anybuild --watch",
+        "build": "anybuild"
+    },
+    "buildinfo": {
+        "mode": "component-vue3",
+        "name": "text"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "vue": "^3.2.47"
+    },
+    "devDependencies": {
+        "anybuild": "workspace:*",
+        "@anybuild/build-component-vue3": "workspace:*"
+    }
+}

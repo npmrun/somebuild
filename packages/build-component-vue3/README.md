@@ -1,0 +1,1 @@
+# @anybuild/build-component-vue3

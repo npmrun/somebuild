@@ -18,7 +18,7 @@ export default defineConfig((options) => {
     ])
     return {
         entry: {
-            ['build-lib']: 'src/index.ts',
+            ['build-component-vue3']: 'src/index.ts',
         },
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,
@@ -26,7 +26,7 @@ export default defineConfig((options) => {
         splitting: isDev ? false : true,
         outExtension({ format }) {
             return {
-              js: `.js`,
+                js: `.js`,
             }
         },
         sourcemap: true,

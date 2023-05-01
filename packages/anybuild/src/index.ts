@@ -25,7 +25,11 @@ program
             process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
         }
         const isDev = !!watch
-        process.env.WATCH = isDev
+        if(isDev){
+            process.env.WATCH = '1'
+        }else{
+            Reflect.deleteProperty(process.env, "WATCH")
+        }
         await getAnybuildConfigAsync()
         try {
             // @ts-ignore
@@ -50,7 +54,11 @@ program
             process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
         }
         const isDev = !!watch
-        process.env.WATCH = isDev
+        if(isDev){
+            process.env.WATCH = '1'
+        }else{
+            Reflect.deleteProperty(process.env, "WATCH")
+        }
         await getAnybuildConfigAsync()
         switch (mode) {
             case 'lib':
@@ -58,6 +66,17 @@ program
                     // @ts-ignore
                     const { default: build } = await import(
                         '@anybuild/build-lib'
+                    )
+                    build?.()
+                } catch (error) {
+                    throw error
+                }
+                break
+            case 'component-vue3':
+                try {
+                    // @ts-ignore
+                    const { default: build } = await import(
+                        '@anybuild/build-component-vue3'
                     )
                     build?.()
                 } catch (error) {
@@ -73,7 +92,7 @@ program
 program
     .command('init')
     .description('初始化项目')
-    .action(async ({}) => {
+    .action(async ({ }) => {
         error('开发中，暂不可用')
     })
 

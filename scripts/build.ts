@@ -12,6 +12,7 @@ externals = externals.concat([
     'anybuild',
     '@anybuild/build-lib',
     '@anybuild/build-docs',
+    '@anybuild/build-component-vue3',
     '@noderun/loadconfig',
 ])
 
