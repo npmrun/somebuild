@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "dev": "anybuild --watch",
-        "build": "anybuild"
+        "dev": "somebuild --watch",
+        "build": "somebuild"
     },
     "buildinfo": {
         "mode": "component-vue3",
@@ -17,7 +17,7 @@
         "vue": "^3.2.47"
     },
     "devDependencies": {
-        "anybuild": "workspace:*",
-        "@anybuild/build-component-vue3": "workspace:*"
+        "somebuild": "workspace:*",
+        "@somebuild/build-component-vue3": "workspace:*"
     }
 }

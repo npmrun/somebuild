@@ -1,4 +1,4 @@
-# @anybuild/build-component-vue3
+# @somebuild/build-component-vue3
 
 ## 0.0.2
 
@@ -6,4 +6,4 @@
 
 - init
 - Updated dependencies
-  - anybuild@0.0.2
+  - somebuild@0.0.2

@@ -1,5 +1,5 @@
 {
-    "name": "<%= justName ? pkgName : ('@anybuild/'+ pkgName) %>",
+    "name": "<%= justName ? pkgName : ('@somebuild/'+ pkgName) %>",
     "version": "0.0.1",
     "type": "module",
     "description": "<%= pkgDesc %>",

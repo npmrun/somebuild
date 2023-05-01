@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { getMode } from './check'
-import { error, getAnybuildConfigAsync } from './utils'
+import { error, getsomebuildConfigAsync } from './utils'
 
 // export * from './shared'
 export { getInfo } from './check'
@@ -30,10 +30,10 @@ program
         }else{
             Reflect.deleteProperty(process.env, "WATCH")
         }
-        await getAnybuildConfigAsync()
+        await getsomebuildConfigAsync()
         try {
             // @ts-ignore
-            const { default: build } = await import('@anybuild/build-docs')
+            const { default: build } = await import('@somebuild/build-docs')
             build?.()
         } catch (error) {
             throw error
@@ -59,13 +59,13 @@ program
         }else{
             Reflect.deleteProperty(process.env, "WATCH")
         }
-        await getAnybuildConfigAsync()
+        await getsomebuildConfigAsync()
         switch (mode) {
             case 'lib':
                 try {
                     // @ts-ignore
                     const { default: build } = await import(
-                        '@anybuild/build-lib'
+                        '@somebuild/build-lib'
                     )
                     build?.()
                 } catch (error) {
@@ -76,7 +76,7 @@ program
                 try {
                     // @ts-ignore
                     const { default: build } = await import(
-                        '@anybuild/build-component-vue3'
+                        '@somebuild/build-component-vue3'
                     )
                     build?.()
                 } catch (error) {

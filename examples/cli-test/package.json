@@ -3,13 +3,13 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "anybuild"
+        "build": "somebuild"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@anybuild/build-lib": "workspace:*",
-        "@anybuild/build-docs": "workspace:*"
+        "@somebuild/build-lib": "workspace:*",
+        "@somebuild/build-docs": "workspace:*"
     }
 }

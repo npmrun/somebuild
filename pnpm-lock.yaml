@@ -32,9 +32,9 @@ importers:
       '@types/node':
         specifier: ^18.16.0
         version: 18.16.0
-      anybuild:
+      somebuild:
         specifier: workspace:*
-        version: link:packages/anybuild
+        version: link:packages/somebuild
       chalk:
         specifier: ^5.2.0
         version: 5.2.0
@@ -65,41 +65,41 @@ importers:
 
   examples/cli-test:
     dependencies:
-      '@anybuild/build-docs':
+      '@somebuild/build-docs':
         specifier: workspace:*
         version: link:../../packages/build-docs
-      '@anybuild/build-lib':
+      '@somebuild/build-lib':
         specifier: workspace:*
         version: link:../../packages/build-lib
 
   examples/component-vue3-demo:
     dependencies:
-      '@anybuild/build-component-vue3':
+      '@somebuild/build-component-vue3':
         specifier: workspace:*
         version: link:../../packages/build-component-vue3
-      anybuild:
+      somebuild:
         specifier: workspace:*
-        version: link:../../packages/anybuild
+        version: link:../../packages/somebuild
       vue:
         specifier: ^3.2.47
         version: 3.2.47
 
   examples/docs-demo:
     dependencies:
-      '@anybuild/build-docs':
+      '@somebuild/build-docs':
         specifier: workspace:*
         version: link:../../packages/build-docs
-      '@anybuild/build-lib':
+      '@somebuild/build-lib':
         specifier: workspace:*
         version: link:../../packages/build-lib
-      anybuild:
+      somebuild:
         specifier: workspace:*
-        version: link:../../packages/anybuild
+        version: link:../../packages/somebuild
       vue:
         specifier: ^3.2.47
         version: 3.2.47
 
-  packages/anybuild:
+  packages/somebuild:
     dependencies:
       '@noderun/loadconfig':
         specifier: ^0.0.2
@@ -114,13 +114,13 @@ importers:
         specifier: ^11.1.1
         version: 11.1.1
     optionalDependencies:
-      '@anybuild/build-component-vue3':
+      '@somebuild/build-component-vue3':
         specifier: '*'
         version: link:../build-component-vue3
-      '@anybuild/build-docs':
+      '@somebuild/build-docs':
         specifier: '*'
         version: link:../build-docs
-      '@anybuild/build-lib':
+      '@somebuild/build-lib':
         specifier: '*'
         version: link:../build-lib
 
@@ -132,9 +132,9 @@ importers:
       '@vitejs/plugin-vue-jsx':
         specifier: ^3.0.1
         version: 3.0.1(vite@4.3.3)(vue@3.2.47)
-      anybuild:
+      somebuild:
         specifier: '*'
-        version: link:../anybuild
+        version: link:../somebuild
       vite:
         specifier: ^4.3.3
         version: 4.3.3(@types/node@18.16.0)(sass@1.62.1)
@@ -211,9 +211,9 @@ importers:
 
   packages/build-lib:
     dependencies:
-      anybuild:
+      somebuild:
         specifier: '*'
-        version: link:../anybuild
+        version: link:../somebuild
       fs-extra:
         specifier: ^11.1.1
         version: 11.1.1

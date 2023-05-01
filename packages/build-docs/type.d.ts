@@ -1,4 +1,4 @@
-declare module 'anybuild/vite/desktop/theme' {
+declare module 'somebuild/vite/desktop/theme' {
     const defaultM: {
         Layout: any
         enhanceApp: any

@@ -1,12 +1,12 @@
 {
-    "name": "anybuild",
+    "name": "somebuild",
     "version": "0.0.2",
     "type": "module",
     "description": "",
     "main": "./dist/bin.js",
     "types": "./dist/bin.d.ts",
     "bin": {
-        "anybuild": "./dist/bin.js"
+        "somebuild": "./dist/bin.js"
     },
     "files": [
         "dist"
@@ -25,13 +25,13 @@
         "fs-extra": "^11.1.1"
     },
     "optionalDependencies": {
-        "@anybuild/build-docs": "*",
-        "@anybuild/build-lib": "*",
-        "@anybuild/build-component-vue3": "*"
+        "@somebuild/build-docs": "*",
+        "@somebuild/build-lib": "*",
+        "@somebuild/build-component-vue3": "*"
     },
     "devDependencies": {
-        "@anybuild/build-docs": "workspace:*",
-        "@anybuild/build-lib": "workspace:*",
-        "@anybuild/build-component-vue3": "workspace:*"
+        "@somebuild/build-docs": "workspace:*",
+        "@somebuild/build-lib": "workspace:*",
+        "@somebuild/build-component-vue3": "workspace:*"
     }
 }

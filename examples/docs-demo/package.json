@@ -3,15 +3,15 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "dev": "anybuild docs"
+        "dev": "somebuild docs"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "anybuild": "workspace:*",
-        "@anybuild/build-docs": "workspace:*",
-        "@anybuild/build-lib": "workspace:*",
+        "somebuild": "workspace:*",
+        "@somebuild/build-docs": "workspace:*",
+        "@somebuild/build-lib": "workspace:*",
         "vue": "^3.2.47"
     }
 }

@@ -1,8 +1,8 @@
-# anybuild
+# somebuild
 
-## @anybuild/build-lib
+## @somebuild/build-lib
     构建一个库
-## @anybuild/build-docs
+## @somebuild/build-docs
     构建一个静态生成库，目前主要用于组件库或组件展示
-## @anybuild/build-components-vue3
-## @anybuild/build-component-vue3
+## @somebuild/build-components-vue3
+## @somebuild/build-component-vue3

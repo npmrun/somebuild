@@ -10,10 +10,10 @@ export default defineConfig((options) => {
         'chalk',
         'fs-extra',
         '@niu-tools/core',
-        'anybuild',
-        '@anybuild/build-lib',
-        '@anybuild/build-docs',
-        '@anybuild/build-component-vue3',
+        'somebuild',
+        '@somebuild/build-lib',
+        '@somebuild/build-docs',
+        '@somebuild/build-component-vue3',
         '@noderun/loadconfig',
     ])
     return {

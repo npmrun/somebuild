@@ -1,4 +1,4 @@
-import { isObject, isString } from 'anybuild'
+import { isObject, isString } from 'somebuild'
 import tsup, { Options } from 'tsup'
 import {
     getBuildinfo, getConfig,

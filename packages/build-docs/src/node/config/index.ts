@@ -45,20 +45,20 @@ export async function getDevConfig(
         './desktop/theme-default'
     )
     const themeDir = (await fs.pathExists(
-        path.resolve(cwdDir, './.anybuild/theme')
+        path.resolve(cwdDir, './.somebuild/theme')
     ))
-        ? path.resolve(cwdDir, './.anybuild/theme')
+        ? path.resolve(cwdDir, './.somebuild/theme')
         : DEFAULT_THEME_PATH
 
     alias = {
         ...alias,
-        'anybuild/vite/desktop/theme': path.resolve(
+        'somebuild/vite/desktop/theme': path.resolve(
             DEFAULT_THEME_PATH,
             `index.${__DEV__ ? 'ts' : 'js'}`
         ),
         '@desktop': path.resolve(clientDir, './desktop'),
         '@theme': themeDir,
-        '@simulator': path.resolve(cwdDir, './.anybuild/simulator'),
+        '@simulator': path.resolve(cwdDir, './.somebuild/simulator'),
         '@root': path.resolve(cwdDir),
         // ssr不指定
     }
@@ -108,9 +108,9 @@ export async function getDevConfig(
             inputHtml['main'] = mainHTML
         }
     }
-    let outDir = path.resolve(cwdDir, './.anybuild/dist')
+    let outDir = path.resolve(cwdDir, './.somebuild/dist')
     if (isSSR && !isPreRender) {
-        outDir = path.resolve(cwdDir, './.anybuild/.tempDir')
+        outDir = path.resolve(cwdDir, './.somebuild/.tempDir')
     }
     const viteConfig: InlineConfig = mergeConfig(
         mergeConfig(getVue3CommonConfig(), {
@@ -128,7 +128,7 @@ export async function getDevConfig(
             optimizeDeps: {
                 // https://cn.vitejs.dev/config/dep-optimization-options.html#optimizedeps-entries
                 // 可以看到node_modules的文件会被忽略。所以需要使其不被忽略
-                entries: ['!node_modules/anybuild'],
+                entries: ['!node_modules/somebuild'],
             },
             build: {
                 html: {},

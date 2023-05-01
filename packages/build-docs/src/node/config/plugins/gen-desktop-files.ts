@@ -8,8 +8,8 @@ import { clientDir, cwdDir, getConfig } from '@/shared'
 
 const virtualDesktopModuleId = 'site-desktop-shared'
 const virtualDesktopInfoModuleId = 'site-desktop-info'
-const resolvedDesktopVirtualModuleId = `anybuild:${virtualDesktopModuleId}`
-const resolvedDesktopInfoVirtualModuleId = `anybuild:${virtualDesktopInfoModuleId}`
+const resolvedDesktopVirtualModuleId = `somebuild:${virtualDesktopModuleId}`
+const resolvedDesktopInfoVirtualModuleId = `somebuild:${virtualDesktopInfoModuleId}`
 
 function createImport(file: string) {
     return `async ()=>await import('${normalizePath(file)}')`
@@ -50,10 +50,10 @@ function parseComponent(componentsDir) {
 
 export async function genDesktopFiles(): Promise<Plugin> {
     const myConfig = getConfig()
-    const siteinfoPath = path.resolve(cwdDir, '.anybuild/siteinfo.json')
+    const siteinfoPath = path.resolve(cwdDir, '.somebuild/siteinfo.json')
     let root
     return {
-        name: 'vite-plugin(anybuild):gen-site-base-code',
+        name: 'vite-plugin(somebuild):gen-site-base-code',
         resolveId(id) {
             if (id === virtualDesktopModuleId) {
                 return resolvedDesktopVirtualModuleId

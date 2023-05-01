@@ -1,6 +1,6 @@
 import { build } from 'tsup'
 
-const pkg = require(`../packages/anybuild/package.json`)
+const pkg = require(`../packages/somebuild/package.json`)
 const isDev = true
 const dependencies = pkg['dependencies'] ?? {}
 let externals = Array.from(new Set([...Object.keys(dependencies)]))
@@ -9,18 +9,18 @@ externals = externals.concat([
     'chalk',
     'fs-extra',
     '@niu-tools/core',
-    'anybuild',
-    '@anybuild/build-lib',
-    '@anybuild/build-docs',
-    '@anybuild/build-component-vue3',
+    'somebuild',
+    '@somebuild/build-lib',
+    '@somebuild/build-docs',
+    '@somebuild/build-component-vue3',
     '@noderun/loadconfig',
 ])
 
 build({
     entry: {
-        bin: 'packages/anybuild/src/index.ts',
+        bin: 'packages/somebuild/src/index.ts',
     },
-    outDir: "packages/anybuild/dist",
+    outDir: "packages/somebuild/dist",
     watch: isDev,
     format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
     dts: true,

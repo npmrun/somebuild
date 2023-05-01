@@ -1,4 +1,4 @@
-# @anybuild/build-docs
+# @somebuild/build-docs
 
 ## 0.0.2
 

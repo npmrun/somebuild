@@ -1,4 +1,4 @@
-import { getAnybuildConfig } from 'anybuild'
+import { getsomebuildConfig } from 'somebuild'
 import path from 'node:path'
 import { fileURLToPath } from 'url'
 
@@ -15,7 +15,7 @@ export const clientDir = __DEV__
     ? path.resolve(srcDir, './client')
     : path.resolve(distDir, './client')
 
-export interface IAnyBuildConfigByDocs {
+export interface IsomebuildConfigByDocs {
     alias: any
     define?: any
     componentsDir?: string //组件文件夹
@@ -26,18 +26,18 @@ export interface IAnyBuildConfigByDocs {
     vite?: import('vite').InlineConfig
 }
 
-export function defineConfig(config: IAnyBuildConfigByDocs) {
+export function defineConfig(config: IsomebuildConfigByDocs) {
     return config
 }
 
 /**
- * 获取anybuild.config.mts配置文件
+ * 获取somebuild.config.mts配置文件
  */
 export function getConfig() {
-    let config = getAnybuildConfig<IAnyBuildConfigByDocs>()
+    let config = getsomebuildConfig<IsomebuildConfigByDocs>()
     if (!config) {
         config = {
-            path: path.resolve(cwdDir, 'anybuild.config.mts'),
+            path: path.resolve(cwdDir, 'somebuild.config.mts'),
             config: {
                 alias: {
                     '@': './src',

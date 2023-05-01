@@ -1,4 +1,4 @@
-import { defineConfig } from '@anybuild/build-docs'
+import { defineConfig } from '@somebuild/build-docs'
 
 export default defineConfig({
     alias: {

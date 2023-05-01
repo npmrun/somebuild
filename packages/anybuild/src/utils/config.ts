@@ -11,18 +11,18 @@ export interface IConfig<T extends any> {
 
 let userConfig
 
-export function getAnybuildConfig<T>() {
+export function getsomebuildConfig<T>() {
     return userConfig as IConfig<T>
 }
 
-export async function getAnybuildConfigAsync() {
-    if (fs.pathExistsSync(path.resolve(cwdDir, 'anybuild.config.mts'))) {
+export async function getsomebuildConfigAsync() {
+    if (fs.pathExistsSync(path.resolve(cwdDir, 'somebuild.config.mts'))) {
         userConfig = (await loadConfigFromFile(
             {
                 mode: process.env.WATCH ? 'development' : 'production',
                 command: process.env.WATCH ? 'serve' : 'build',
             },
-            'anybuild.config.mts',
+            'somebuild.config.mts',
             cwdDir
         )) as any
     }

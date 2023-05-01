@@ -1,4 +1,4 @@
-import DefaultTheme from 'anybuild/vite/desktop/theme'
+import DefaultTheme from 'somebuild/vite/desktop/theme'
 
 export default {
     ...DefaultTheme,

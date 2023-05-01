@@ -1,8 +1,8 @@
 {
-    "name": "@anybuild/build-lib",
+    "name": "@somebuild/build-lib",
     "version": "0.0.2",
     "type": "module",
-    "description": "anybuild构建一个lib",
+    "description": "somebuild构建一个lib",
     "main": "dist/build-lib.js",
     "types": "dist/build-lib.d.ts",
     "files": [
@@ -16,7 +16,7 @@
     "author": "noderun",
     "license": "ISC",
     "peerDependencies": {
-        "anybuild": "*"
+        "somebuild": "*"
     },
     "dependencies": {
         "fs-extra": "^11.1.1",

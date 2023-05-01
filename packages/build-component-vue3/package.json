@@ -1,5 +1,5 @@
 {
-    "name": "@anybuild/build-component-vue3",
+    "name": "@somebuild/build-component-vue3",
     "version": "0.0.2",
     "type": "module",
     "description": "构建vue3组件",
@@ -16,7 +16,7 @@
     "author": "noderun",
     "license": "ISC",
     "peerDependencies": {
-        "anybuild": "*"
+        "somebuild": "*"
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^4.2.1",
