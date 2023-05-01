@@ -90,14 +90,14 @@ export async function getDevConfig(
             // TODO 参考vitepress
             app: isPreRender
                 ? `${normalizePath(
-                      path.resolve(clientDir, './desktop/main.ts')
-                  )}`
+                    path.resolve(clientDir, './desktop/main.ts')
+                )}`
                 : `${normalizePath(
-                      path.resolve(
-                          clientDir,
-                          `./desktop/ssr.${__DEV__ ? 'ts' : 'js'}`
-                      )
-                  )}`,
+                    path.resolve(
+                        clientDir,
+                        `./desktop/ssr.${__DEV__ ? 'ts' : 'js'}`
+                    )
+                )}`,
             // main: `${normalizePath(path.resolve(clientDir, './desktop'))}/main.ts`,
             // simulator: `${normalizePath(path.resolve(clientDir, './simulator'))}/main.ts`,
         }
@@ -143,8 +143,8 @@ export async function getDevConfig(
                     output: isSSR
                         ? !isPreRender
                             ? {
-                                  entryFileNames: '[name].js',
-                              }
+                                entryFileNames: '[name].js',
+                            }
                             : {}
                         : {},
                     // input: {
@@ -230,32 +230,32 @@ export async function getDevConfig(
                         const { slugify } = require('transliteration')
                         const markdownItAnchor = require('markdown-it-anchor')
 
-                        ;(function markdownLinkOpen(md: MarkdownIt) {
-                            const defaultRender = md.renderer.rules.link_open
+                            ; (function markdownLinkOpen(md: MarkdownIt) {
+                                const defaultRender = md.renderer.rules.link_open
 
-                            md.renderer.rules.link_open = (
-                                tokens,
-                                idx,
-                                options,
-                                env,
-                                self
-                            ) => {
-                                const aIndex = tokens[idx].attrIndex('target')
-                                if (aIndex < 0) {
-                                    tokens[idx].attrPush(['target', '_blank']) // add new attribute
+                                md.renderer.rules.link_open = (
+                                    tokens,
+                                    idx,
+                                    options,
+                                    env,
+                                    self
+                                ) => {
+                                    const aIndex = tokens[idx].attrIndex('target')
+                                    if (aIndex < 0) {
+                                        tokens[idx].attrPush(['target', '_blank']) // add new attribute
+                                    }
+                                    if (defaultRender) {
+                                        return defaultRender(
+                                            tokens,
+                                            idx,
+                                            options,
+                                            env,
+                                            self
+                                        )
+                                    }
+                                    return self.renderToken(tokens, idx, options)
                                 }
-                                if (defaultRender) {
-                                    return defaultRender(
-                                        tokens,
-                                        idx,
-                                        options,
-                                        env,
-                                        self
-                                    )
-                                }
-                                return self.renderToken(tokens, idx, options)
-                            }
-                        })(md)
+                            })(md)
 
                         md.use(markdownItAnchor, {
                             level: 2,
@@ -270,6 +270,28 @@ export async function getDevConfig(
                             path.resolve(clientDir, './simulator'),
                         ],
                         fileExtensions: ['vue', 'tsx'],
+                    },
+                    onConfigResolved(config, configFilePath) {
+                        // 由于vitePluginWindicss的exclude中包含了node_modules,但是无法去除，通过这种方法
+                        // 可以使得transform时可以识别node_modules中的路径, 最好的方法自然是让官方改下
+                        if (config.extract === undefined) {
+                            config.extract = {
+                                exclude: [
+                                    ".git",
+                                    "windi.config.{ts,js}",
+                                    "tailwind.config.{ts,js}"
+                                ]
+                            }
+                        } else {
+                            if (config.extract.exclude === undefined) {
+                                config.extract.exclude = [
+                                    ".git",
+                                    "windi.config.{ts,js}",
+                                    "tailwind.config.{ts,js}"
+                                ]
+                            }
+                        }
+                        return config
                     },
                 }),
                 genDesktopFiles(),
