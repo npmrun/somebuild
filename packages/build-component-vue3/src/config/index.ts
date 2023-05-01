@@ -4,6 +4,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 import path from "node:path"
 import { getBuildinfo, getOtherinfo } from "../shared"
+import libCss from './vite-plugin-libcss'
 
 export function getConfig() {
     const buildInfo = getBuildinfo()
@@ -22,7 +23,8 @@ export function getConfig() {
         configFile: false,
         plugins: [
             vue({ isProduction: !isDev }),
-            vueJsx()
+            vueJsx(),
+            libCss(),
         ],
         resolve: {
             alias: {
@@ -30,7 +32,7 @@ export function getConfig() {
             },
         },
         build: {
-            sourcemap: 'inline',
+            sourcemap: true,
             outDir: buildInfo.outDir,
             cssCodeSplit: false,
             emptyOutDir: false,
@@ -41,7 +43,10 @@ export function getConfig() {
                 fileName: (format) => {
                     return `${format}/${buildInfo.name}.js`
                 },
-                formats: ['es', 'umd'],
+                // fileName: (format) => {
+                //     return `${buildInfo.name}.${format}.js`
+                // },
+                formats: isDev ? ['es'] : ['es', 'umd'],
             },
             rollupOptions: {
                 external: botherInfo.externals,

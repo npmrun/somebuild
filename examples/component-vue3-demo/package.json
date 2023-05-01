@@ -2,13 +2,27 @@
     "name": "component-vue3-demo",
     "version": "1.0.0",
     "description": "",
+    "main": "./dist/umd/adjust-line.js",
+    "module": "./dist/es/adjust-line.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/umd/adjust-line.js",
+            "import": "./dist/es/adjust-line.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./dist/*": "./dist/*"
+    },
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "dev": "somebuild --watch",
         "build": "somebuild"
     },
     "buildinfo": {
         "mode": "component-vue3",
-        "name": "text"
+        "name": "adjust-line"
     },
     "keywords": [],
     "author": "",

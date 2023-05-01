@@ -26,25 +26,27 @@ const componentsData = import.meta.glob(__COMP_MATCH__)
 const docsData = import.meta.glob(__DOCS_MATCH__, { eager: true })
 
 const allDocs: any[] = []
-for (const key in docsData) {
-    if (Object.prototype.hasOwnProperty.call(docsData, key)) {
-        const doc = (docsData[key] as any).default ?? (docsData[key] as any)
-        const frontmatter =
-            (docsData[key] as any).frontmatter ?? (docsData[key] as any)
-        const [, name, _language] = key.match(
-            /\/docs\/(.*?)\/index\.(.*?)\.md/
-        ) as string[]
-        const language = _language.split('-')[0]
-        allDocs.push({
-            path: `/${language}/docs/${name}`,
-            name: name,
-            language: language,
-            meta: {
-                title: name,
-                ...(frontmatter ?? {})
-            },
-            component: doc,
-        })
+if(docsData){
+    for (const key in docsData) {
+        if (Object.prototype.hasOwnProperty.call(docsData, key)) {
+            const doc = (docsData[key] as any).default ?? (docsData[key] as any)
+            const frontmatter =
+                (docsData[key] as any).frontmatter ?? (docsData[key] as any)
+            const [, name, _language] = key.match(
+                /\/docs\/(.*?)\/index\.(.*?)\.md/
+            ) as string[]
+            const language = _language.split('-')[0]
+            allDocs.push({
+                path: `/${language}/docs/${name}`,
+                name: name,
+                language: language,
+                meta: {
+                    title: name,
+                    ...(frontmatter ?? {})
+                },
+                component: doc,
+            })
+        }
     }
 }
 
