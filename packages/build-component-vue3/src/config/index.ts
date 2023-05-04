@@ -49,7 +49,7 @@ export function getConfig() {
                 formats: isDev ? ['es'] : ['es', 'umd'],
             },
             rollupOptions: {
-                external: botherInfo.externals,
+                external: botherInfo.externals.map(v => new RegExp(`^${v}`)),
                 output: {
                     globals: botherInfo.globals,
                     exports: 'named',

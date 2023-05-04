@@ -4,20 +4,8 @@
     "favicon": "https://fastly.jsdelivr.net/npm/@vant/assets/logo.png",
     "meta": [{ "name": "a", "content": "b" }],
     "navbar": [
-        {
-            "title": "首页",
-            "path": "docs/home"
-        },
-        {
-            "title": "组件",
-            "path": "button"
-        }
     ],
     "action": [
-        {
-            "title": "关于",
-            "path": "docs/about"
-        }
     ],
     "sidebar": [
         {

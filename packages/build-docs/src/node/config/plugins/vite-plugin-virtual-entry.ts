@@ -62,6 +62,12 @@ export async function vitePluginVirtualEntry(): Promise<Plugin> {
             server.middlewares.use(async (req, res, next) => {
                 const url = req.url && cleanUrl(req.url)
                 let ext = __DEV__ ? ".ts" : ".js"
+                if(url.endsWith(".md")){
+                    console.log(url);
+                    
+                    next()
+                    return
+                }
                 if (url === "/" || url.startsWith("/zh") || url.startsWith("/en")) {
                     res.statusCode = 200
                     res.setHeader('Content-Type', 'text/html')

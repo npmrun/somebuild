@@ -6,7 +6,7 @@ import {
 } from 'vite'
 import viteVueJsxPlugin from '@vitejs/plugin-vue-jsx'
 import viteVuePlugin from '@vitejs/plugin-vue'
-import viteMd from 'vite-plugin-md'
+import viteMd, { composeSfcBlocks } from 'vite-plugin-md'
 import vitePluginWindicss from 'vite-plugin-windicss'
 import hljs from 'highlight.js'
 import { clientDir, cwdDir, getConfig, rootDir } from '../../shared'
@@ -295,6 +295,51 @@ export async function getDevConfig(
                     },
                 }),
                 genDesktopFiles(),
+                {
+                    resolveId(id, importer, options) {
+                        if (id.includes("?fuck")) {
+                            console.log(id);
+
+                            const [_, language, p] = id.match(/\/(.*?)\/(.*?)\?fuck/)
+                            console.log(path.resolve(cwdDir, p));
+                            return path.resolve(cwdDir, p)
+                        }
+                        // console.log(1, id);
+                        return null
+                    },
+                    async handleHotUpdate(ctx) {
+                        const { file, read, server, modules } = ctx
+                        // console.log(file);
+                        const text =  await fs.readFile(file, 'utf-8')
+
+                        const { frontmatter } = await composeSfcBlocks('', text, {})
+                        
+                        const payload = {
+                            path: file,
+                            data: {
+                                path: file,
+                                frontmatter
+                            }
+                        }
+                        // notify the client to update page data
+                        server.ws.send({
+                            type: 'custom',
+                            event: 'vitepress:pageData',
+                            data: payload
+                        })
+                    }
+                    // load(id, options) {
+                    //     if(id.endsWith(".md"))
+                    //     console.log(2, id);
+                    //     return null
+                    // },
+                    // async transform(code, id) {
+                    //     if(id.endsWith(".md"))
+                    //     console.log(3, id);
+
+                    //     return code
+                    // }
+                }
             ],
         } as InlineConfig),
         viteObject
