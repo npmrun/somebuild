@@ -16,7 +16,8 @@
     "author": "noderun",
     "license": "ISC",
     "peerDependencies": {
-        "somebuild": "*"
+        "somebuild": "*",
+        "vue": "*"
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^4.2.1",

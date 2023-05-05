@@ -1,11 +1,10 @@
-
 import { App } from 'vue'
-import Test from "./test.vue"
-console.log(2232);
-console.log(2232);
+import Test from './test.vue'
 
-export default {
+const _: import("vue").Plugin = {
     install(app: App) {
-        app.component("ttt", Test)
-    }
+        app.component('tttaa', Test)
+    },
 }
+
+export default _

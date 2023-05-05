@@ -46,7 +46,8 @@ export function getConfig() {
                 // fileName: (format) => {
                 //     return `${buildInfo.name}.${format}.js`
                 // },
-                formats: isDev ? ['es'] : ['es', 'umd'],
+                // formats: isDev ? ['es'] : ['es', 'umd'],
+                formats: ['es'],
             },
             rollupOptions: {
                 external: botherInfo.externals.map(v => new RegExp(`^${v}`)),

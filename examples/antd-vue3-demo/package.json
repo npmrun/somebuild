@@ -2,8 +2,7 @@
     "name": "antd-vue3-demo",
     "version": "1.0.0",
     "description": "",
-    "main": "./dist/umd/antd-plus.js",
-    "module": "./dist/es/antd-plus.js",
+    "main": "./dist/es/antd-plus.js",
     "types": "./dist/index.d.ts",
     "files": [
         "dist"
@@ -19,12 +18,14 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {
-        "ant-design-vue": "^3.2.20",
-        "vue": "^3.2.47"
+    "peerDependencies": {
+        "ant-design-vue": "*",
+        "vue": "*"
     },
     "devDependencies": {
         "@somebuild/build-component-vue3": "workspace:*",
-        "somebuild": "workspace:*"
+        "somebuild": "workspace:*",
+        "ant-design-vue": "^3.2.20",
+        "vue": "^3.2.47"
     }
 }
