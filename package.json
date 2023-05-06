@@ -11,7 +11,7 @@
         "dev:cli": "turbo run dev --filter somebuild...",
         "commit": "changeset",
         "version": "pnpm build && changeset version",
-        "release": "pnpm --filter './packages/**' publish --access public"
+        "release": "pnpm --filter ./packages/* publish --access public"
     },
     "keywords": [],
     "author": "npmrun",
