@@ -7,10 +7,12 @@ interface IBuildInfoTsup {
     watch: boolean
     outDir: string
     name: string
+    fileName: string
     entry: string[] | Record<string, string> | string
 }
 
 const allinfo = getInfo()
+export const cwdDir = process.cwd()
 
 export function getOtherinfo() {
     let externals = allinfo.externals
@@ -39,7 +41,7 @@ export function defineConfig(config: IsomebuildConfigByComponent) {
 /**
  * 获取somebuild.config.mts配置文件
  */
-export function getConfig() {
+export function getBuildConfig() {
     let config = getSomeBuildConfig<IsomebuildConfigByComponent>()
     // if (!config) {
     //     config = {
