@@ -1,5 +1,13 @@
 # @somebuild/build-lib
 
+## 0.0.7
+
+### Patch Changes
+
+- release 0.0.7
+- Updated dependencies
+  - somebuild@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
