@@ -81,7 +81,7 @@ export async function vitePluginVirtualEntry(): Promise<Plugin> {
                     res.end(html)
                     return
                 }
-                if (url.endsWith(".html")) {
+                if (url.endsWith("simulator.html")) {
                     const [, name] = url.match(/(?<=\/(.*?))\.html$/)
                     const source = inputHtml[name]
                     if (source) {

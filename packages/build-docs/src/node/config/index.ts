@@ -297,6 +297,7 @@ export async function getDevConfig(
                 genDesktopFiles(),
                 {
                     resolveId(id, importer, options) {
+                        // http://localhost:3366/zh/aaas 记录一下，得这个访问才能获取到文档
                         if (id.includes("?fuck")) {
                             console.log(id);
 

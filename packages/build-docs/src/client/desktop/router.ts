@@ -87,6 +87,9 @@ function buildRouter() {
             // let n = `@root/${to.path.replace(/\//, '')}.md`
             // const name = '/' + to.path.replace(/\//, '') + '.md'
             console.log(name);
+            if(name === "/readme.md?fuck"){
+                name = "/zh/readme.md?fuck"
+            }
             const res = await import(/* @vite-ignore */name)
             // to.matched[0].components?.default
             // 替换组件
