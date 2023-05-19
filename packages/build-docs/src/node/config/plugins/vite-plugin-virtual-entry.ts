@@ -63,8 +63,7 @@ export async function vitePluginVirtualEntry(): Promise<Plugin> {
                 const url = req.url && cleanUrl(req.url)
                 let ext = __DEV__ ? ".ts" : ".js"
                 if(url.endsWith(".md")){
-                    console.log(url);
-                    
+                    console.log("url:",url, req.url);
                     next()
                     return
                 }
@@ -92,6 +91,7 @@ export async function vitePluginVirtualEntry(): Promise<Plugin> {
                         return
                     }
                 }
+                
                 next()
             })
         },

@@ -12,7 +12,7 @@ import { h, reactive } from 'vue'
 
 const routes: RouteRecordRaw[] = [
     {
-        path: '/:pathMatch(.*)*',
+        path: '/:pathMatch(.*?)*',
         component: () => import("./Page.vue")
         // {
         //     render() {
@@ -69,7 +69,7 @@ function buildRouter() {
     const router = createRouter({
         history: import.meta.env.SSR
             ? createMemoryHistory()
-            : createWebHistory(),
+            : import.meta.env.DEV? createWebHashHistory(): createWebHistory(),
         routes,
     })
     router.beforeResolve(async (to) => {
@@ -78,16 +78,18 @@ function buildRouter() {
         try {
             let name = `/${to.path.replace(/\//, '')}`
             if (to.path.endsWith("/")) {
-                name = name + "readme.md?fuck"
+                name = name + "readme.md"
             } else if (to.path.endsWith(".html")) {
-                name = name.replace(".html", "") + ".md?fuck"
+                name = name.replace(".html", "") + ".md"
             } else {
-                name = name + ".md?fuck"
+                name = name + ".md"
             }
             // let n = `@root/${to.path.replace(/\//, '')}.md`
             // const name = '/' + to.path.replace(/\//, '') + '.md'
-            console.log(name);
-            const res = await import(/* @vite-ignore */name)
+            console.log(name,111);
+            // console.log(await import(/* @vite-ignore */"/readme.md"));
+            
+            const res = await import(/* @vite-ignore */name+"")
             // to.matched[0].components?.default
             // 替换组件
             // if(to.matched[0].components){

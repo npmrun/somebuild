@@ -297,10 +297,10 @@ export async function getDevConfig(
                 genDesktopFiles(),
                 {
                     resolveId(id, importer, options) {
-                        if (id.includes("?fuck")) {
+                        if (id.endsWith("/fuck")) {
                             console.log(id);
 
-                            const [_, language, p] = id.match(/\/(.*?)\/(.*?)\?fuck/)
+                            const [_, language, p] = id.match(/\/(.*?)\/(.*?)\/fuck/)
                             console.log(path.resolve(cwdDir, p));
                             return path.resolve(cwdDir, p)
                         }
