@@ -1,13 +1,6 @@
-import { defineConfig } from '@somebuild/build-docs'
+import { defineRootConfig } from 'somebuild'
+import { defineConfig as defineLibConfig } from '@somebuild/build-lib'
 
-export default defineConfig({
-    alias: {
-        '@': './srcqq',
-    },
-    define: {
-        __MD_MATCH__: "'@root/src/components/*/index.*.md'",
-        __DEMO_MATCH__: "'@root/src/components/*/demo/*.vue'",
-        __COMP_MATCH__: "'@root/src/components/*/index.ts'",
-        __DOCS_MATCH__: "'@root/docs/*/*.md'",
-    },
+export default defineRootConfig({
+    lib: defineLibConfig({}),
 })

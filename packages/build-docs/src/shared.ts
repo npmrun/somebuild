@@ -34,7 +34,7 @@ export function defineConfig(config: IsomebuildConfigByDocs) {
  * 获取somebuild.config.mts配置文件
  */
 export function getConfig() {
-    let config = getSomeBuildConfig<IsomebuildConfigByDocs>()
+    let config = getSomeBuildConfig<IsomebuildConfigByDocs>("docs")
     if (!config) {
         config = {
             path: path.resolve(cwdDir, 'somebuild.config.mts'),

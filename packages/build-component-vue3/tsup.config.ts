@@ -1,21 +1,21 @@
 import { defineConfig } from 'tsup'
 import pkg from './package.json'
+import rootPkg from '../../package.json'
 
 export default defineConfig((options) => {
     const isDev = options.watch
-    const dependencies = pkg['dependencies'] ?? {}
-    let externals = Array.from(new Set([...Object.keys(dependencies)]))
-    externals = externals.concat([
-        'commander',
-        'chalk',
-        'fs-extra',
-        '@niu-tools/core',
-        'somebuild',
-        '@somebuild/build-lib',
-        '@somebuild/build-docs',
-        '@somebuild/build-component-vue3',
-        '@noderun/loadconfig',
-    ])
+    let externals = Array.from(
+        new Set([
+            ...Object.keys(pkg['dependencies'] ?? {}),
+            ...Object.keys(pkg['peerDependencies'] ?? {}),
+            ...Object.keys(pkg['optionalDependencies'] ?? {}),
+            ...Object.keys(pkg['devDependencies'] ?? {}),
+            ...Object.keys(rootPkg['dependencies'] ?? {}),
+            ...Object.keys(rootPkg['peerDependencies'] ?? {}),
+            ...Object.keys(rootPkg['optionalDependencies'] ?? {}),
+            ...Object.keys(rootPkg['devDependencies'] ?? {}),
+        ])
+    )
     return {
         entry: {
             ['build-component-vue3']: 'src/index.ts',

@@ -11,8 +11,12 @@ export interface IConfig<T extends any> {
 
 let userConfig
 
-export function getSomeBuildConfig<T>() {
-    return userConfig as IConfig<T>
+export function getSomeBuildConfig<T>(name: keyof IRootConfig) {
+    const config = userConfig as IConfig<T>
+    if(config.config[name]){
+        config.config = config.config[name]
+    }
+    return config
 }
 
 export async function getSomeBuildConfigAsync() {
@@ -27,4 +31,15 @@ export async function getSomeBuildConfigAsync() {
         )) as any
     }
     return userConfig
+}
+
+interface IRootConfig {
+    lib: any
+    docs: any
+    'component-vue3': any
+    'components-vue3': any
+}
+
+export function defineRootConfig(config: Partial<IRootConfig>) {
+    return config
 }

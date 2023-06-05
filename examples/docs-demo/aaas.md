@@ -1,6 +1,6 @@
 ---
-type: mobile
-aa: 啊啊asdasd
+type: pc
+# aa: 啊啊asdasd
 ---
 
-##  vvv
+##  vvvav

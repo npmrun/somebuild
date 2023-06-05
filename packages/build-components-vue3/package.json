@@ -1,0 +1,17 @@
+{
+    "name": "@somebuild/build-components-vue3",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "vue3组件库",
+    "main": "dist/components-vue3.js",
+    "types": "dist/components-vue3.d.ts",
+    "scripts": {},
+    "keywords": [],
+    "author": "noderun",
+    "license": "ISC",
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^4.2.1",
+        "vite": "^4.3.3",
+        "vite-plugin-dts": "^2.3.0"
+    }
+}

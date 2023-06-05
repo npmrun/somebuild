@@ -1,4 +1,3 @@
-import { externalsSetting } from '../setting'
 import { defineConfig } from 'tsup'
 import pkg from './package.json'
 import rootPkg from '../../package.json'
@@ -19,7 +18,7 @@ export default defineConfig((options) => {
     )
     return {
         entry: {
-            ['build-docs']: 'src/node/index.ts',
+            ['build-components-vue3']: 'src/index.ts',
         },
         format: 'esm', //isDev ? 'esm' : ['esm', 'cjs'],
         dts: true,

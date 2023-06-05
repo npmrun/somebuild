@@ -5,6 +5,10 @@
     "scripts": {
         "build": "somebuild"
     },
+    "buildinfo": {
+        "mode": "lib",
+        "name": "aaa"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",

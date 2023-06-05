@@ -42,10 +42,6 @@ export function defineConfig(config: IsomebuildConfigByComponent) {
  * 获取somebuild.config.mts配置文件
  */
 export function getBuildConfig() {
-    let config = getSomeBuildConfig<IsomebuildConfigByComponent>()
-    // if (!config) {
-    //     config = {
-    //     }
-    // }
+    let config = getSomeBuildConfig<IsomebuildConfigByComponent>("component-vue3")
     return config
 }
