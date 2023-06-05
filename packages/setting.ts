@@ -7,5 +7,6 @@ export const externalsSetting = [
     '@somebuild/build-lib',
     '@somebuild/build-docs',
     '@somebuild/build-component-vue3',
+    '@somebuild/build-components-vue3',
     '@noderun/loadconfig',
 ]

@@ -1,0 +1,43 @@
+
+.adjust-line {
+    position: absolute;
+    z-index: 999;
+    transition: background-color 0.5s ease;
+
+    &:hover,
+    &:active {
+        background: #1976d2;
+    }
+
+    &__left {
+        left: -2px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        cursor: ew-resize;
+    }
+
+    &__top {
+        top: -2px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        cursor: n-resize;
+    }
+
+    &__bottom {
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        cursor: n-resize;
+    }
+
+    &__right {
+        right: -2px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        cursor: ew-resize;
+    }
+}

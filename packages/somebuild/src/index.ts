@@ -25,9 +25,9 @@ program
             process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
         }
         const isDev = !!watch
-        if(isDev){
+        if (isDev) {
             process.env.WATCH = '1'
-        }else{
+        } else {
             Reflect.deleteProperty(process.env, "WATCH")
         }
         await getSomeBuildConfigAsync()
@@ -54,9 +54,9 @@ program
             process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
         }
         const isDev = !!watch
-        if(isDev){
+        if (isDev) {
             process.env.WATCH = '1'
-        }else{
+        } else {
             Reflect.deleteProperty(process.env, "WATCH")
         }
         await getSomeBuildConfigAsync()
@@ -77,6 +77,18 @@ program
                     // @ts-ignore
                     const { default: build } = await import(
                         '@somebuild/build-component-vue3'
+                    )
+                    build?.()
+                } catch (error) {
+                    throw error
+                }
+                break
+            case 'components-vue3':
+                
+                try {
+                    // @ts-ignore
+                    const { default: build } = await import(
+                        '@somebuild/build-components-vue3'
                     )
                     build?.()
                 } catch (error) {

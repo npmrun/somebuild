@@ -5,7 +5,6 @@
         "dev": "pnpm dev:cli",
         "build": "pnpm build:cli",
         "preinstall": "npx only-allow pnpm",
-        "postinstall": "pnpm build:cli",
         "poststop": "pnpm i",
         "build:cli": "turbo run build --filter somebuild...",
         "dev:cli": "turbo run dev --filter somebuild...",

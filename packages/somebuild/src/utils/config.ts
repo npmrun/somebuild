@@ -13,7 +13,7 @@ let userConfig
 
 export function getSomeBuildConfig<T>(name: keyof IRootConfig) {
     const config = userConfig as IConfig<T>
-    if(config.config[name]){
+    if(config?.config?.[name]){
         config.config = config.config[name]
     }
     return config
