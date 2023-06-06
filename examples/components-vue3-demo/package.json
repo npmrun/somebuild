@@ -12,6 +12,7 @@
     "buildinfo": {
         "mode": "components-vue3",
         "name": "FineUI",
+        "componentsName": "components",
         "outDir": "./dist",
         "entry": "./src/index.ts"
     },
