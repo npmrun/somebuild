@@ -15,6 +15,7 @@ interface IBuildInfoComponentsVue3 {
     mode: 'components-vue3'
     watch: boolean
     outDir: string
+    name: string
     entry: string
     componentsName: string
 }

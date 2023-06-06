@@ -1,6 +1,6 @@
 import path from 'path';
 import { cwdDir, externals, getBuildinfo, getSomeBuildConfigCwd, globals } from './shared'
-import { InlineConfig, build, createServer, mergeConfig, build as viteBuild } from 'vite'
+import { InlineConfig, build, mergeConfig } from 'vite'
 import viteVueJsxPlugin from "@vitejs/plugin-vue-jsx"
 import viteVuePlugin from "@vitejs/plugin-vue"
 import dtsPlugin from "vite-plugin-dts"
@@ -39,7 +39,6 @@ function getConfig(isEsm: boolean) {
         }
     }
     const viteObject = config.config?.vite ?? {}
-
     const viteConfig: InlineConfig = mergeConfig(mergeConfig(getVue3CommonConfig(), {
         root: cwdDir,
         logLevel: 'error',
@@ -54,7 +53,7 @@ function getConfig(isEsm: boolean) {
             LibCss()
         ],
         build: {
-            sourcemap: 'inline',
+            sourcemap: true,
             outDir: path.resolve(_config.outDir, isEsm ? 'es' : 'lib'),
             cssCodeSplit: true,
             emptyOutDir: true,
@@ -74,8 +73,6 @@ function getConfig(isEsm: boolean) {
                     preserveModules: true,
                     preserveModulesRoot: path.resolve(_config.outDir, isEsm ? 'es' : 'lib'),
                     assetFileNames(chunkInfo) {
-                        console.log(chunkInfo);
-
                         const name = chunkInfo.name.split("?")[0].split(".").slice(0, -1).join(".")
                         return `${_config.componentsName}/${name}/style/style.css`
                     },
