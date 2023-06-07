@@ -3,4 +3,5 @@ node_modules
 .turbo
 dist
 temp
+.tempDir
 tsdoc-metadata.json

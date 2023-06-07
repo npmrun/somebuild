@@ -8,7 +8,7 @@ import {
     useRoute,
 } from 'vue-router'
 import Page from "./Page.vue"
-import { h, reactive } from 'vue'
+import { h, reactive, ref } from 'vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -90,6 +90,10 @@ function buildRouter() {
             if(name === "/readme.md?fuck"){
                 name = "/zh/readme.md?fuck"
             }
+            if(to.fullPath.endsWith("?module")){
+                name = to.fullPath.replace("?module","")
+                console.log(name);
+            }
             const res = await import(/* @vite-ignore */name)
             // to.matched[0].components?.default
             // 替换组件
@@ -108,7 +112,7 @@ function buildRouter() {
 
             to.meta['path'] = res.default.__file
             to.meta['comp'] = res.default
-            to.meta['frontmatter'] = reactive(res.frontmatter)
+            to.meta['frontmatter'] = ref(res.frontmatter)
             return true
         } catch (error) {
             console.error(error)
@@ -130,9 +134,9 @@ function buildRouter() {
         import.meta.hot.on("vitepress:pageData", (res) => {   
             if (res.data.path === decodeURIComponent((router.currentRoute.value.meta.path as any) ?? '')) {
                 // @ts-ignore
-                Object.assign(router.currentRoute.value.meta.frontmatter, res.data.frontmatter)
+                router.currentRoute.value.meta.frontmatter.value = res.data.frontmatter
             }
-            console.log(router.currentRoute.value.meta);
+            console.log(router.currentRoute.value.meta, res.data.frontmatter);
         })
     }
 

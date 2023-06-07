@@ -65,7 +65,13 @@ const BaseApp = defineComponent({
 
 export async function justCreateApp() {
     let app = createApp(BaseApp)
-    const router = buildRouter()
+    let router = buildRouter()
+    // TODO 考虑在ssr构建时构建一个json对应页面的mjs,然后应用到路由上
+    // if(import.meta.env.PROD && !isSSR){
+    //     console.log("去掉路由");
+    //     // @ts-ignore
+    //     router = {}
+    // }
     app.use(router)
     app.use(allComponents)
     ;(async () => {

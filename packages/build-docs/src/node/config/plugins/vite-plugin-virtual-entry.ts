@@ -2,7 +2,7 @@
 import { normalizePath, Plugin, ResolvedConfig } from "vite"
 import fs from "fs-extra"
 import path from "node:path"
-import { clientDir } from "../../../shared"
+import { clientDir, cwdDir } from "../../../shared"
 
 const cleanUrl = (url: string): string =>
     url.replace(/#.*$/s, '').replace(/\?.*$/s, '')

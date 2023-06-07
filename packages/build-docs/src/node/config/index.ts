@@ -106,6 +106,8 @@ export async function getDevConfig(
             // 模拟器需要直接输出
             inputHtml['simulator'] = simulatorHTML
             inputHtml['main'] = mainHTML
+        }else{
+            inputHtml["zh/readme.md"] = path.resolve(cwdDir, './readme.md')
         }
     }
     let outDir = path.resolve(cwdDir, './.somebuild/dist')
@@ -143,7 +145,7 @@ export async function getDevConfig(
                     output: isSSR
                         ? !isPreRender
                             ? {
-                                entryFileNames: '[name].js',
+                                entryFileNames: '[name].mjs',
                             }
                             : {}
                         : {},

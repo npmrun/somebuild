@@ -16,9 +16,9 @@ import { useRoute } from 'vue-router'
 import { watchEffect } from 'vue';
 
 const route = useRoute()
-watchEffect(()=>{
+watchEffect(() => {
     console.log(route);
-    
+
 })
 
 // const FeButton = defineAsyncComponent({
