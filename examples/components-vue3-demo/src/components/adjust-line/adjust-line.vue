@@ -2,10 +2,6 @@
     <div class="adjust-line" :class="['adjust-line__' + direction]" ref="adjustLineEL"></div>
 </template>
 
-<style lang="scss">
-@import "./style.scss";
-</style>
-
 <script lang="ts" setup>
 import { nextTick, onMounted, ref, watch } from 'vue';
 

@@ -6,7 +6,8 @@
     "main": "dist/build-component-vue3.js",
     "types": "dist/build-component-vue3.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "env.d.ts"
     ],
     "scripts": {
         "dev": "tsup --watch",

@@ -17,7 +17,8 @@ interface IBuildInfoComponentsVue3 {
     outDir: string
     name: string
     entry: string
-    componentsName: string
+    theme: string
+    singleTheme: string
 }
 
 
