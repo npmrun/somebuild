@@ -1,20 +1,24 @@
 {
+    "name": "somebuild",
     "private": true,
     "scripts": {
         "new": "tsx scripts/new.ts",
-        "build": "pnpm build:cli",
+        "build": "rimraf -g packages/*/dist && pnpm build:cli && pnpm gen-typedoc",
         "preinstall": "npx only-allow pnpm",
         "poststop": "pnpm i",
         "build:cli": "turbo run build --filter somebuild...",
         "dev": "tsx scripts/run.ts",
         "commit": "changeset",
         "version": "pnpm build && changeset version",
-        "release": "pnpm --filter ./packages/* publish --access public"
+        "release": "pnpm --filter ./packages/* publish --access public",
+        "gen-typedoc": "api-extractor run -l",
+        "test": "vitest",
+        "coverage": "vitest run --coverage"
     },
     "keywords": [],
     "author": "npmrun",
     "license": "ISC",
-    "devDependencies": {
+    "dependencies": {
         "@changesets/cli": "^2.26.1",
         "@manypkg/get-packages": "^2.1.0",
         "@niu-tools/core": "^0.0.12",
@@ -30,15 +34,18 @@
         "fs-extra": "^11.1.1",
         "inquirer": "^9.1.5",
         "npm-run-all": "^4.1.5",
+        "rimraf": "^5.0.0",
         "rollup": "^3.21.2",
         "somebuild": "workspace:*",
         "tsc-alias": "^1.8.6",
         "tsup": "^6.7.0",
         "tsx": "^3.12.6",
         "turbo": "^1.9.3",
-        "typescript": "^5.0.4"
+        "typescript": "^5.0.4",
+        "vitest": "^0.32.0"
     },
-    "dependencies": {
-        "rimraf": "^5.0.0"
+    "devDependencies": {
+        "@microsoft/api-extractor": "^7.35.1",
+        "mock-fs": "^5.2.0"
     }
 }

@@ -2,3 +2,6 @@ node_modules
 
 .turbo
 dist
+etc
+temp
+tsdoc-metadata.json

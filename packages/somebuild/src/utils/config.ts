@@ -3,6 +3,10 @@ import fs from 'fs-extra'
 import path from 'node:path'
 import { loadConfigFromFile } from '@noderun/loadconfig'
 
+/**
+ *
+ * @internal
+ */
 export interface IConfig<T extends any> {
     path: string
     config: T
@@ -11,6 +15,9 @@ export interface IConfig<T extends any> {
 
 let userConfig
 
+/**
+ * @public
+ */
 export function getSomeBuildConfig<T>(name: keyof IRootConfig) {
     const config = userConfig as IConfig<T>
     if(config?.config?.[name]){
@@ -19,6 +26,10 @@ export function getSomeBuildConfig<T>(name: keyof IRootConfig) {
     return config
 }
 
+/**
+ *
+ * @internal
+ */
 export async function getSomeBuildConfigAsync() {
     if (fs.pathExistsSync(path.resolve(cwdDir, 'somebuild.config.mts'))) {
         userConfig = (await loadConfigFromFile(
@@ -39,7 +50,9 @@ interface IRootConfig {
     'component-vue3': any
     'components-vue3': any
 }
-
+/**
+ * @public
+ */
 export function defineRootConfig(config: Partial<IRootConfig>) {
     return config
 }

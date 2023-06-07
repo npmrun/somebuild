@@ -8,11 +8,9 @@ let externals = Array.from(
         ...Object.keys(pkg['dependencies'] ?? {}),
         ...Object.keys(pkg['peerDependencies'] ?? {}),
         ...Object.keys(pkg['optionalDependencies'] ?? {}),
-        ...Object.keys(pkg['devDependencies'] ?? {}),
         ...Object.keys(rootPkg['dependencies'] ?? {}),
         ...Object.keys(rootPkg['peerDependencies'] ?? {}),
         ...Object.keys(rootPkg['optionalDependencies'] ?? {}),
-        ...Object.keys(rootPkg['devDependencies'] ?? {}),
     ])
 )
 

@@ -2,7 +2,10 @@ import path from 'path'
 import fs from 'fs-extra'
 import { error } from '../utils'
 
-function check() {
+/**
+ * @internal
+ */
+export function check() {
     const jsonFile = path.resolve(process.cwd(), './package.json')
     if (!fs.pathExistsSync(jsonFile)) {
         error('不存在package.json', 'exit')
@@ -25,6 +28,9 @@ export function getMode() {
     return buildinfo.mode
 }
 
+/**
+ * @internal
+ */
 export function getInfo() {
     const { buildinfo, pkgInfo, jsonFile } = check()
 
@@ -47,7 +53,6 @@ export function getInfo() {
 
     const externals = [
         ...Object.keys(dependencies),
-        ...Object.keys(devDependencies),
         ...Object.keys(peerDependencies),
     ].filter((v) => !pkgInfo.exclude.includes(v))
 
