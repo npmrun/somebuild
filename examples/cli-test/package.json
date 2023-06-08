@@ -6,8 +6,7 @@
         "build": "somebuild build"
     },
     "buildinfo": {
-        "mode": "lib",
-        "name": "aaa"
+        "mode": "lib"
     },
     "keywords": [],
     "author": "",

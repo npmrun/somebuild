@@ -9,7 +9,7 @@ export * from './shared'
 export default async function () {
     const buildinfo = getBuildinfo()
     const _config = getConfig()?.config ?? {}
-    const isDev = buildinfo.watch
+    const isDev = !!process.env.WATCH
 
     if (_config.overide) {
         // 只使用配置文件的配置

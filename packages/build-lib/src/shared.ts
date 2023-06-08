@@ -3,7 +3,6 @@ import { getSomeBuildConfig, getInfo } from 'somebuild'
 interface IBuildInfoTsup {
     engine?: 'tsup'
     mode: 'lib'
-    watch: boolean
     outDir: string
     name: string
     entry: string[] | Record<string, string> | string
@@ -16,6 +15,15 @@ const allinfo = getInfo()
  */
 export function getBuildinfo() {
     let _config = allinfo.buildinfo as IBuildInfoTsup
+    if (!_config) {
+        _config = {
+            engine: "tsup",
+            mode: "lib",
+            outDir: "./dist",
+            name: allinfo.pkgInfo.name,
+            entry: "./src/index.ts"
+        }
+    }
     return _config
 }
 
@@ -35,6 +43,5 @@ export function defineConfig(config: IsomebuildConfig) {
  */
 export function getConfig() {
     let config = getSomeBuildConfig<IsomebuildConfig>("lib")
-    console.log(config);
     return config
 }
