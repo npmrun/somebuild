@@ -11,8 +11,8 @@
         "fileName": "adjust-line"
     },
     "scripts": {
-        "dev": "somebuild -w",
-        "build": "rimraf dist && somebuild"
+        "dev": "somebuild build -w",
+        "build": "rimraf dist && somebuild build"
     },
     "keywords": [],
     "author": "noderun",

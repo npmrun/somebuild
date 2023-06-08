@@ -4,9 +4,9 @@
             <div class="title flex">
                 <a href="/" class="mr-12px">{{ title }}</a>
                 <ul class="flex">
-                    <li class="px-12px" v-for="item in _siteinfo.navbar ?? []">
+                    <!-- <li class="px-12px" v-for="item in _siteinfo.navbar ?? []">
                         <router-link class="block" :to="`/${language}/${item.path}`">{{ item.title }}</router-link>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <ul class="ml-auto">
@@ -22,9 +22,9 @@
                         <a :href="href" @click="navigate">{{language === 'zh' ? '英语' : 'English'}}</a>
                     </li>
                 </router-link> -->
-                <li class="float-left px-12px"  v-for="item in _siteinfo.action ?? []">
+                <!-- <li class="float-left px-12px"  v-for="item in _siteinfo.action ?? []">
                     <router-link class="block" :to="`/${language}/${item.path}`">{{ item.title }}</router-link>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>
@@ -50,21 +50,21 @@ const FirstComponent = computed(() => {
 })
 
 const active = ref()
-const language = ref("zh")
-const route = useRoute()
-watchEffect(() => {
-    const [, lang] = route.path.match(/\/(.*?)\//) as string[] ?? []
-    if(lang){
-        language.value = lang
-    }
-    if (route.params?.comp) {
-        active.value = route.params.comp as string
-    }
-    if (route.params?.language) {
-        language.value = route.params.language as string
-    }
+// const language = ref("zh")
+// const route = useRoute()
+// watchEffect(() => {
+//     const [, lang] = route.path.match(/\/(.*?)\//) as string[] ?? []
+//     if(lang){
+//         language.value = lang
+//     }
+//     if (route.params?.comp) {
+//         active.value = route.params.comp as string
+//     }
+//     if (route.params?.language) {
+//         language.value = route.params.language as string
+//     }
     
-})
+// })
 </script>
 
 <style lang="scss" scoped>

@@ -15,11 +15,11 @@ program.showHelpAfterError(`(${__NAME__} -h 查看帮助信息)`)
 
 program
     .command('docs')
-    .option('-w, --watch', '开发模式')
-    .option('--ssr', 'ssr模式')
+    .option('--watch', 'watch模式')
+    .option('--ssr [value]', 'ssr模式')
     .option('-d, --debug [value]', 'Debug日志')
     .description('构建静态文档网站')
-    .action(async ({ watch, debug, site, ssr }) => {
+    .action(async ({ watch, debug, ssr }) => {
         if (debug) {
             // 开启日志
             process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
@@ -34,13 +34,14 @@ program
         try {
             // @ts-ignore
             const { default: build } = await import('@somebuild/build-docs')
-            build?.()
+            build?.(!!ssr)
         } catch (error) {
             throw error
         }
     })
 
 program
+    .command('build')
     .option('-w, --watch', '开发模式')
     .option('-s, --site', '站点模式')
     .option('--ssr', 'ssr模式')
@@ -109,3 +110,4 @@ program
     })
 
 program.parse(process.argv)
+// console.log(program);

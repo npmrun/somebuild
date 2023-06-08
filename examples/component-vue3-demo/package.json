@@ -17,8 +17,8 @@
         "dist"
     ],
     "scripts": {
-        "dev": "somebuild --watch",
-        "build": "somebuild"
+        "dev": "somebuild build --watch",
+        "build": "somebuild build"
     },
     "buildinfo": {
         "mode": "component-vue3",

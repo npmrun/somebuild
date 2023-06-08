@@ -13,7 +13,8 @@ import { h, reactive, ref } from 'vue'
 const routes: RouteRecordRaw[] = [
     {
         path: '/:pathMatch(.*)*',
-        component: () => import("./Page.vue")
+        // component: () => import("./Page.vue")
+        component: Page
         // {
         //     render() {
         //         return h(Page, {}, this.dynamicComponent?[h(this.dynamicComponent)]:null)

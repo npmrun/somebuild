@@ -7,7 +7,7 @@ import { _siteinfo } from 'site-desktop-info'
 
 // https://github.com/vitejs/vite-plugin-vue/blob/main/playground/ssr-vue/prerender.js
 export async function render(path: string, manifest: any) {
-    const { app, router } = await justCreateApp()
+    const { app, router } = await justCreateApp(true) as any
     await router.push(path+"?module")
     await router.isReady()
     let meta = []

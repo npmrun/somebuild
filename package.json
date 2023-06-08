@@ -6,6 +6,7 @@
         "build": "rimraf -g packages/*/dist && pnpm build:cli && pnpm gen-typedoc",
         "preinstall": "npx only-allow pnpm",
         "poststop": "pnpm i",
+        "dev:cli": "turbo run dev --filter somebuild...",
         "build:cli": "turbo run build --filter somebuild...",
         "dev": "tsx scripts/run.ts",
         "commit": "changeset",

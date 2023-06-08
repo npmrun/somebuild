@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "somebuild"
+        "build": "somebuild build"
     },
     "buildinfo": {
         "mode": "lib",

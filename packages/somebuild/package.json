@@ -21,19 +21,19 @@
     "dependencies": {
         "@noderun/loadconfig": "^0.0.2",
         "chalk": "^5.2.0",
-        "commander": "^10.0.1",
+        "commander": "^9.5.0",
         "fs-extra": "^11.1.1"
     },
     "optionalDependencies": {
-        "@somebuild/build-docs": "*",
-        "@somebuild/build-lib": "*",
         "@somebuild/build-component-vue3": "*",
-        "@somebuild/build-components-vue3": "*"
+        "@somebuild/build-components-vue3": "*",
+        "@somebuild/build-docs": "*",
+        "@somebuild/build-lib": "*"
     },
     "devDependencies": {
-        "@somebuild/build-docs": "workspace:*",
-        "@somebuild/build-lib": "workspace:*",
         "@somebuild/build-component-vue3": "workspace:*",
-        "@somebuild/build-components-vue3": "workspace:*"
+        "@somebuild/build-components-vue3": "workspace:*",
+        "@somebuild/build-docs": "workspace:*",
+        "@somebuild/build-lib": "workspace:*"
     }
 }

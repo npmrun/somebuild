@@ -6,8 +6,9 @@
         "dist"
     ],
     "scripts": {
-        "dev": "somebuild docs",
-        "build": "rimraf dist && somebuild"
+        "dev": "somebuild docs --watch",
+        "build-site": "somebuild docs",
+        "build": "rimraf dist && somebuild build"
     },
     "buildinfo": {
         "mode": "components-vue3",
