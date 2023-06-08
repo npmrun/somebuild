@@ -12,6 +12,9 @@
         "commit": "changeset",
         "version": "pnpm build && changeset version",
         "release": "pnpm --filter ./packages/* publish --access public",
+        "docs:dev": "pnpm --filter website docs:dev",
+        "docs:build": "pnpm --filter website docs:build",
+        "docs:preview": "pnpm --filter website docs:preview",
         "gen-typedoc": "api-extractor run -l",
         "test": "vitest",
         "coverage": "vitest run --coverage"
