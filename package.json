@@ -11,7 +11,7 @@
         "dev": "tsx scripts/run.ts",
         "commit": "changeset",
         "version": "pnpm build && changeset version",
-        "release": "pnpm publish --access public --filter ./packages/*",
+        "release": "pnpm  --filter './packages/**' publish --access public",
         "docs:dev": "pnpm --filter website docs:dev",
         "docs:build": "pnpm --filter website docs:build",
         "docs:preview": "pnpm --filter website docs:preview",
