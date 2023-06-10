@@ -38,6 +38,12 @@ export default async function () {
         define: {
             __DEV__: `${isDev}`,
         },
+        // 统一输出js,防止一会js,一会mjs
+        outExtension() {
+            return {
+                js: ".js"
+            };
+        },
         minify: !isDev,
         config: false,
     }
