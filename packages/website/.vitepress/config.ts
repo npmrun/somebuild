@@ -34,7 +34,7 @@ export default defineConfig({
             {
                 text: "build-lib",
                 items: [
-                    { text: 'guide', link: '/build-lib/guide' }
+                    { text: '导航', link: '/build-lib/guide' }
                 ]
             }
         ],
