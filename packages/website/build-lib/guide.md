@@ -1,10 +1,17 @@
----
-outline: deep
----
 
-# 库
+# build-lib
 
-## 构建一个基本库
+## 导览
+
+该库主要是为了构建一个基本js库
+
+## 安装
+
+```
+pnpm i @somebuild/build-lib -D
+```
+
+## 使用说明
 
 `package.json`
 ```ts
