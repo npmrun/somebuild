@@ -12,7 +12,7 @@ export default defineConfig({
             dark: 'vitesse-dark',
         }
     },
-    
+    base: "/somebuild",
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
