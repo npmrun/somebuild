@@ -4,9 +4,9 @@
             <div class="title flex">
                 <a href="/" class="mr-12px">{{ title }}</a>
                 <ul class="flex">
-                    <!-- <li class="px-12px" v-for="item in _siteinfo.navbar ?? []">
-                        <router-link class="block" :to="`/${language}/${item.path}`">{{ item.title }}</router-link>
-                    </li> -->
+                    <li class="px-12px" v-for="item in _siteinfo.navbar ?? []">
+                        <router-link class="block" :to="`${item.path.endsWith('/')?item.path:(item.path+'.html')}`">{{ item.title }}</router-link>
+                    </li>
                 </ul>
             </div>
             <ul class="ml-auto">
@@ -22,9 +22,9 @@
                         <a :href="href" @click="navigate">{{language === 'zh' ? '英语' : 'English'}}</a>
                     </li>
                 </router-link> -->
-                <!-- <li class="float-left px-12px"  v-for="item in _siteinfo.action ?? []">
-                    <router-link class="block" :to="`/${language}/${item.path}`">{{ item.title }}</router-link>
-                </li> -->
+                <li class="float-left px-12px"  v-for="item in _siteinfo.action ?? []">
+                    <router-link class="block" :to="`${item.path.endsWith('/')?item.path:(item.path+'.html')}`">{{ item.title }}</router-link>
+                </li>
             </ul>
         </div>
     </nav>

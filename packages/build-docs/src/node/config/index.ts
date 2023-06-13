@@ -107,7 +107,10 @@ export async function getDevConfig(
             inputHtml['simulator'] = simulatorHTML
             inputHtml['main'] = mainHTML
         }else{
-            inputHtml["zh/readme.md"] = path.resolve(cwdDir, './readme.md')
+            let allFiles = FastGlob.sync("**/*.md", {cwd: cwdDir, ignore: ["node_modules"]})
+            allFiles.forEach(file=>{
+                inputHtml[file.replace("\\", "_")] = path.resolve(cwdDir, file)
+            })
         }
     }
     let outDir = path.resolve(cwdDir, './.somebuild/dist')

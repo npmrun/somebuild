@@ -4,8 +4,13 @@
     "favicon": "https://fastly.jsdelivr.net/npm/@vant/assets/logo.png",
     "meta": [{ "name": "a", "content": "b" }],
     "navbar": [
+        {
+            "title": "关于",
+            "path": "/zh/about"
+        }
     ],
     "action": [
+       
     ],
     "sidebar": [
         {

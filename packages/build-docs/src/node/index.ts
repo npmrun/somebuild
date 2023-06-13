@@ -5,6 +5,7 @@ import path from 'path'
 import { pathToFileURL } from 'url'
 import fs from 'fs-extra'
 import lodash from "lodash-es"
+import FastGlob from 'fast-glob'
 
 const { ensureFileSync, pathExistsSync, readFileSync, readJSONSync, writeFileSync, unlinkSync } = fs
 
@@ -55,10 +56,13 @@ async function buildDocs() {
     if (pathExistsSync(siteinfoPath)) {
         renderData = readJSONSync(siteinfoPath)
     }
-
-    let pagesPromise = [
-        renderPage(path.resolve(cwdDir, './.somebuild/.tempDir/zh/readme.md.mjs')+"?module", "index.html", { manifest, clientResult, render, renderData, matchedStr })
-    ]
+    
+    let pagesPromise = []
+    let allFiles = FastGlob.sync("**/*.md", {cwd: cwdDir, ignore: ["node_modules"]})
+    allFiles.forEach(file=>{
+        let targetHtml = file.replace("\\", "_").replace(".md", "").replace(/readme$/, "index") + ".html"
+        pagesPromise.push(renderPage(path.resolve(cwdDir, `./.somebuild/.tempDir/${file.replace("\\", "_")}.mjs`)+"?module", targetHtml, { manifest, clientResult, render, renderData, matchedStr }))
+    })
    
     await Promise.all(pagesPromise)
 }

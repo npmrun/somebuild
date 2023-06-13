@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Simulator v-if="frontmatter?.type=='mobile'" :url="`/zh/button/basic`"></Simulator>
-        <PC v-if="frontmatter?.type=='pc'" :url="`/zh/button/basic`"></PC>
+        <Simulator v-if="frontmatter?.type=='mobile'" :url="`/zh/${curDemo}/basic`"></Simulator>
+        <PC v-if="frontmatter?.type=='pc'" :url="`/zh/${curDemo}/basic`"></PC>
         <div style="margin-top: 50px;">
             <Content>
                 <component :is="dynamicComponent" v-if="dynamicComponent"></component>
@@ -18,6 +18,10 @@ import PC from '@desktop/PC.vue'
 import Content from './Content.vue'
 
 const route = useRoute()
+
+const curDemo = computed(()=>{
+    return route.path.split("/").slice(-2,-1)[0]
+})
 const frontmatter= computed<any>(()=>{
     console.log(route.meta);
     
