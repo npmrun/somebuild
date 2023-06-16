@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "resolveJsonModule": true,
+        "outDir": "../../dist/client",
+        "declaration": true,
+        "declarationDir": "../../dist/client-types",
+        "jsx": "preserve",
+        "target": "ESNext",
+        "module": "ESNext",
+        "baseUrl": ".",
+        "paths": {
+            "@desktop/*": ["desktop/*"],
+            "@simulator/*": ["simulator/*"]
+        }
+    },
+    "include": ["desktop", "typings", "simulator", "common/data"],
+    "exclude": ["node_modules"]
+}

@@ -1,9 +1,10 @@
 {
-    "name": "docs-demo",
+    "name": "test-vue3-ui",
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "dev": "somebuild docs"
+        "dev": "somebuild preview --watch",
+        "build": "somebuild preview"
     },
     "keywords": [],
     "author": "",

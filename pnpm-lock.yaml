@@ -285,6 +285,67 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4
 
+  packages/build-preview:
+    dependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^4.2.1
+        version: 4.2.1(vite@4.3.4)(vue@3.2.47)
+      '@vitejs/plugin-vue-jsx':
+        specifier: ^3.0.1
+        version: 3.0.1(vite@4.3.4)(vue@3.2.47)
+      fast-glob:
+        specifier: ^3.2.12
+        version: 3.2.12
+      highlight.js:
+        specifier: ^11.7.0
+        version: 11.8.0
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
+      markdown-it:
+        specifier: ^13.0.1
+        version: 13.0.1
+      markdown-it-anchor:
+        specifier: ^8.6.7
+        version: 8.6.7(@types/markdown-it@12.2.3)(markdown-it@13.0.1)
+      sass:
+        specifier: ^1.62.1
+        version: 1.62.1
+      somebuild:
+        specifier: '*'
+        version: link:../somebuild
+      transliteration:
+        specifier: ^2.3.5
+        version: 2.3.5
+      vite:
+        specifier: ^4.3.3
+        version: 4.3.4(@types/node@18.16.3)(sass@1.62.1)
+      vite-plugin-dts:
+        specifier: ^2.3.0
+        version: 2.3.0(@types/node@18.16.3)(rollup@3.21.4)(vite@4.3.4)
+      vite-plugin-md:
+        specifier: ^0.21.5
+        version: 0.21.5(@vitejs/plugin-vue@4.2.1)(sass@1.62.1)(vite@4.3.4)
+      vite-plugin-windicss:
+        specifier: ^1.8.10
+        version: 1.8.10(vite@4.3.4)
+      vue:
+        specifier: ^3.2.47
+        version: 3.2.47
+      vue-router:
+        specifier: ^4.1.6
+        version: 4.1.6(vue@3.2.47)
+      windicss:
+        specifier: ^3.5.6
+        version: 3.5.6
+    devDependencies:
+      '@types/markdown-it':
+        specifier: ^12.2.3
+        version: 12.2.3
+      vue-tsc:
+        specifier: ^1.6.0
+        version: 1.6.4(typescript@5.0.4)
+
   packages/somebuild:
     dependencies:
       '@noderun/loadconfig':
@@ -312,6 +373,9 @@ importers:
       '@somebuild/build-lib':
         specifier: '*'
         version: link:../build-lib
+      '@somebuild/build-preview':
+        specifier: '*'
+        version: link:../build-preview
 
   packages/website:
     devDependencies:

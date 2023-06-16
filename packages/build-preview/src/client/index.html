@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (typeof description == 'undefined') { description = ''; } %>
+    <meta name="description" content="<%= description %>">
+    <!--meta-data-->
+    <title><%= title %></title>
+    <link rel="icon" type="image/png" href="<%= favicon %>">
+    <link rel="stylesheet" href="/github-markdown.css">
+    <link rel="stylesheet" href="/overlayscrollbars.min.css">
+    <script src="/overlayscrollbars.browser.es6.min.js"></script>
+    <!--preload-links-->
+</head>
+
+<body class="van-doc-theme-light">
+    <div id="app"><!--app-html--></div>
+    <script>
+        var {
+            OverlayScrollbars,
+            ScrollbarsHidingPlugin,
+            SizeObserverPlugin,
+            ClickScrollPlugin
+        } = OverlayScrollbarsGlobal;
+        const osInstance = OverlayScrollbars(document.body, {
+            overflow: {
+                x: 'hidden',
+            },
+            paddingAbsolute: false,
+            showNativeOverlaidScrollbars: false,
+            update: {
+                elementEvents: [['img', 'load']],
+                debounce: [0, 33],
+                attributes: null,
+                ignoreMutation: null,
+            },
+            scrollbars: {
+                theme: 'os-theme-dark',
+                visibility: 'auto',
+                autoHide: 'move',
+                autoHideDelay: 1300,
+                dragScroll: true,
+                clickScroll: true,
+                pointers: ['mouse', 'touch', 'pen'],
+            },
+        });
+    </script>
+    <!--ENRTYSTART-->
+    <script type="module" src="desktop/main.js"></script>
+    <!--ENRTYEND-->
+</body>
+
+</html>

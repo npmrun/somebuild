@@ -14,6 +14,33 @@ program.helpOption('-h --help', '显示帮助信息')
 program.showHelpAfterError(`(${__NAME__} -h 查看帮助信息)`)
 
 program
+    .command('preview')
+    .option('--watch', 'watch模式')
+    .option('--ssr [value]', 'ssr模式')
+    .option('-d, --debug [value]', 'Debug日志')
+    .description('构建静态文档网站')
+    .action(async ({ watch, debug, ssr }) => {
+        if (debug) {
+            // 开启日志
+            process.env.DEBUG = typeof debug === 'boolean' ? '*' : debug
+        }
+        const isDev = !!watch
+        if (isDev) {
+            process.env.WATCH = '1'
+        } else {
+            Reflect.deleteProperty(process.env, "WATCH")
+        }
+        await getSomeBuildConfigAsync()
+        try {
+            // @ts-ignore
+            const { default: build } = await import('@somebuild/build-preview')
+            build?.(!!ssr)
+        } catch (error) {
+            throw error
+        }
+    })
+
+program
     .command('docs')
     .option('--watch', 'watch模式')
     .option('--ssr [value]', 'ssr模式')
