@@ -1,6 +1,6 @@
 {
     "name": "@somebuild/build-component-vue3",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "type": "module",
     "description": "构建vue3组件",
     "main": "dist/build-component-vue3.js",
