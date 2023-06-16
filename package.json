@@ -3,10 +3,11 @@
     "private": true,
     "scripts": {
         "new": "tsx scripts/new.ts",
-        "build": "rimraf -g packages/*/dist && pnpm build:cli && pnpm gen-typedoc",
+        "build": "run-s del build:cli gen-typedoc",
         "preinstall": "npx only-allow pnpm",
         "poststop": "pnpm i",
         "dev:cli": "turbo run dev --filter somebuild...",
+        "del": "rimraf -g packages/*/dist",
         "build:cli": "turbo run build --filter somebuild...",
         "dev": "tsx scripts/run.ts",
         "commit": "changeset",
