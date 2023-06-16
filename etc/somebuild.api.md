@@ -21,7 +21,7 @@ export function getInfo(): {
     jsonFile: string;
     pkgInfo: any;
     buildinfo: any;
-    externals: string[];
+    externals: any[];
     globals: Record<string, string>;
     dependencies: any;
     devDependencies: any;

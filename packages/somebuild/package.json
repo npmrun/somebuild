@@ -28,14 +28,14 @@
         "@somebuild/build-component-vue3": "*",
         "@somebuild/build-components-vue3": "*",
         "@somebuild/build-docs": "*",
-        "@somebuild/build-preview": "*",
-        "@somebuild/build-lib": "*"
+        "@somebuild/build-lib": "*",
+        "@somebuild/build-preview": "*"
     },
     "devDependencies": {
         "@somebuild/build-component-vue3": "workspace:*",
         "@somebuild/build-components-vue3": "workspace:*",
         "@somebuild/build-docs": "workspace:*",
-        "@somebuild/build-preview": "workspace:*",
-        "@somebuild/build-lib": "workspace:*"
+        "@somebuild/build-lib": "workspace:*",
+        "@somebuild/build-preview": "workspace:*"
     }
 }

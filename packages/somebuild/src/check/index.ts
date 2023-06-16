@@ -48,12 +48,21 @@ export function getInfo() {
     const dependencies = pkgInfo['dependencies'] ?? {}
     const devDependencies = pkgInfo['devDependencies'] ?? {}
     const peerDependencies = pkgInfo['peerDependencies'] ?? {}
+    const optionalDependencies = pkgInfo['optionalDependencies'] ?? {} 
     pkgInfo.globals = pkgInfo['globals'] ?? {}
     pkgInfo.exclude = pkgInfo['exclude'] ?? []
+    pkgInfo.include = pkgInfo['include'] ?? []
 
     const externals = [
         ...Object.keys(dependencies),
         ...Object.keys(peerDependencies),
+        ...Object.keys(optionalDependencies),
+        /**
+         * 如果externals是['ant-design-vue']的话，就只能匹配import * from "ant-design-vue"引入
+         * 如果是import * from "ant-design-vue/es/button" 类似的形式，可以添加 ['ant-design-vue', 'ant-design-vue/es/button']，这样也能匹配
+         * 为甚么呢。因为我在rollupOptions.external的判断是externals.includes(id)的形式，因此就需要这样
+         */
+        ...pkgInfo.include
     ].filter((v) => !pkgInfo.exclude.includes(v))
 
     let globals: Record<string, string> = {}

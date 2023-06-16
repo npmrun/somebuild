@@ -101,7 +101,7 @@ export async function genDesktopFiles(): Promise<Plugin> {
 
                     ws.send({ type: 'full-reload', path: path })
                     // server.restart()
-                    console.log('full-reload: ', path)
+                    // console.log('full-reload: ', path)
                 }
             }
             watcher

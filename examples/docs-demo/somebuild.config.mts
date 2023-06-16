@@ -1,7 +1,17 @@
 import { defineRootConfig } from 'somebuild'
 import { defineConfig as defineDocsConfig } from '@somebuild/build-docs'
+import { defineConfig as defineCompsonfig } from '@somebuild/build-components-vue3'
 
 export default defineRootConfig({
+    "components-vue3": defineCompsonfig({
+        alias: {
+            '@': './src'
+        },
+        vite: {
+            plugins: [
+            ]
+        }
+    }),
     docs: defineDocsConfig({
         alias: {
             '@': './src',

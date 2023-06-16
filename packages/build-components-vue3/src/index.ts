@@ -13,17 +13,27 @@ import dtsPlugin from 'vite-plugin-dts'
 // import { LibCss } from './lib-css'
 import postcssPresetEnv from 'postcss-preset-env'
 import autoprefixer from 'autoprefixer'
-import { readdirSync } from 'fs'
+import { readdirSync, existsSync } from 'fs'
+
+export {
+    defineConfig
+} from './shared'
 
 export default async function () {
-    const styleConfig = getStyleConfig()
-    const themeConfig = getThemeConfig()
+
+    let _config = getBuildinfo()
+    if (_config.singleTheme && existsSync(path.resolve(cwdDir, _config.singleTheme))) {
+        console.log(`打包单个组件样式`)
+        const styleConfig = getStyleConfig()
+        await build(styleConfig)
+    }
+    if (_config.theme && existsSync(path.resolve(cwdDir, _config.theme))) {
+        console.log(`打包统一样式`)
+        const themeConfig = getThemeConfig()
+        await build(themeConfig)
+    }
+
     const viteConfig = getConfig()
-    
-    console.log(`打包单个组件样式`)
-    await build(styleConfig)
-    console.log(`打包统一样式`)
-    await build(themeConfig)
     console.log(`打包组件库`)
     await build(viteConfig)
     console.log(`打包完成`)
@@ -208,13 +218,13 @@ function getConfig() {
                             entryFileNames: '[name].mjs',
                             chunkFileNames: '[name].mjs',
                             exports: 'named',
-                            // assetFileNames(chunkInfo) {
-                            //     if(chunkInfo.type === "asset" && chunkInfo.name.includes("lang.css")){
-                            //         const name = chunkInfo.name.split("?")[0].split(".").slice(0, -1).join(".")
-                            //         return `${_config.componentsName}/${name}/style/style.css`
-                            //     }
-                            //     return "[name].[ext]"
-                            // },
+                            assetFileNames(chunkInfo) {
+                                if (_config.componentsName && chunkInfo.type === "asset") {
+                                    const name = chunkInfo.name.split("?")[0].split(".").slice(0, -1).join(".")
+                                    return `${_config.componentsName}/${name}/style/style.css`
+                                }
+                                return "[name].[ext]"
+                            },
                             globals: (id: string) => {
                                 if (globals[id]) return globals[id]
                             },
@@ -229,6 +239,13 @@ function getConfig() {
                             chunkFileNames: '[name].js',
                             preserveModules: true,
                             generatedCode: true,
+                            assetFileNames(chunkInfo) {
+                                if (_config.componentsName && chunkInfo.type === "asset") {
+                                    const name = chunkInfo.name.split("?")[0].split(".").slice(0, -1).join(".")
+                                    return `${_config.componentsName}/${name}/style/style.css`
+                                }
+                                return "[name].[ext]"
+                            },
                         },
                     ],
                 },

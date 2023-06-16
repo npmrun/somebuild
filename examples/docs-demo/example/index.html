@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/dayjs/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/customParseFormat.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/weekday.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/localeData.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/weekOfYear.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/weekYear.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/advancedFormat.js"></script>
+    <script src="https://unpkg.com/dayjs/plugin/quarterOfYear.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/antd.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/antd.min.css
+" rel="stylesheet">
+<script src="../dist/index.umd.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <ant-plus></ant-plus>
+        <fe-button>
+            测试按钮
+        </fe-button>
+        <fe-button loading>
+            加载中
+        </fe-button>
+        <fe-button dashed>
+            测试按钮
+        </fe-button>
+        <fe-button disabled>
+            测试按钮
+        </fe-button>
+        <fe-button type="danger">
+            按钮
+        </fe-button>
+        <fe-button type="danger" disabled>
+            按钮
+        </fe-button>
+        <fe-button type="danger" loading>
+            加载中
+        </fe-button>
+        <fe-button type="danger" ghost>
+            按钮
+        </fe-button>
+        <fe-button type="danger" ghost loading>
+            加载中
+        </fe-button>
+        <fe-button type="danger" ghost disabled>
+            按钮
+        </fe-button>
+        <fe-button type="warning">
+            按钮
+        </fe-button>
+        <fe-button type="warning" disabled>
+            按钮
+        </fe-button>
+        <fe-button type="warning" ghost>
+            按钮
+        </fe-button>
+        <fe-button type="warning" ghost disabled>
+            按钮
+        </fe-button>
+        <fe-button type="primary">
+            按钮
+        </fe-button>
+        <fe-button type="primary" disabled>
+            按钮
+        </fe-button>
+        <fe-button type="primary" ghost>
+            按钮
+        </fe-button>
+        <fe-button type="primary" ghost disabled>
+            按钮
+        </fe-button>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        const app = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+            }
+        })
+        app.use(antd)
+        app.use(TestUI)
+        app.mount('#app')
+    </script>
+</body>
+
+</html>

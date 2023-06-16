@@ -4,6 +4,10 @@
     "favicon": "https://fastly.jsdelivr.net/npm/@vant/assets/logo.png",
     "meta": [{ "name": "a", "content": "b" }],
     "navbar": [
+        {
+            "title": "组件",
+            "path": "zh/button"
+        }
     ],
     "action": [
     ],
@@ -29,6 +33,11 @@
                     "title": "Space 输入框",
                     "type": "pc",
                     "path": "space"
+                },
+                {
+                    "title": "Ant Plus",
+                    "type": "pc",
+                    "path": "ant-plus"
                 }
             ]
         },

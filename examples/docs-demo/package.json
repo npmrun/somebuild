@@ -4,15 +4,34 @@
     "description": "",
     "scripts": {
         "dev": "somebuild preview --watch",
-        "build": "somebuild preview"
+        "build-site": "somebuild preview",
+        "build": "rimraf dist && somebuild build"
+    },
+    "buildinfo": {
+        "mode": "components-vue3",
+        "name": "TestUI",
+        "theme": "./theme/index.scss",
+        "singleTheme": "./theme/components",
+        "componentsName": "components",
+        "outDir": "./dist",
+        "entry": "./src/index.ts"
+    },
+    "globals": {
+        "vue": "Vue"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "optionalDependencies": {
+        "ant-design-vue": "^3.2.20"
+    },
     "dependencies": {
-        "somebuild": "workspace:*",
+        "vue": "^3.2.47"
+    },
+    "devDependencies": {
+        "@somebuild/build-components-vue3": "workspace:*",
         "@somebuild/build-docs": "workspace:*",
         "@somebuild/build-lib": "workspace:*",
-        "vue": "^3.2.47"
+        "somebuild": "workspace:*"
     }
 }

@@ -5,12 +5,12 @@
                 <a href="/" class="mr-12px">{{ title }}</a>
                 <ul class="flex">
                     <li class="px-12px" v-for="item in _siteinfo.navbar ?? []">
-                        <router-link class="block" :to="`${item.path.endsWith('/')?item.path:(item.path+'.html')}`">{{ item.title }}</router-link>
+                        <router-link class="block" :to="`${item.path.endsWith('/')?item.path:(item.path)}`">{{ item.title }}</router-link>
                     </li>
                 </ul>
             </div>
             <ul class="ml-auto">
-                <!-- <router-link v-if="language === 'en'" :to="active ? `/zh/${active}` : '/zh'" replace custom
+                <router-link v-if="language === 'en'" :to="active ? `/zh/${active}` : '/zh'" replace custom
                     v-slot="{ href, route, navigate, isActive, isExactActive }">
                     <li class="float-left px-12px">
                         <a :href="href" @click="navigate">{{language === 'en' ? 'Chinese' : '中文'}}</a>
@@ -21,7 +21,7 @@
                     <li class="float-left px-12px">
                         <a :href="href" @click="navigate">{{language === 'zh' ? '英语' : 'English'}}</a>
                     </li>
-                </router-link> -->
+                </router-link>
                 <li class="float-left px-12px"  v-for="item in _siteinfo.action ?? []">
                     <router-link class="block" :to="`${item.path.endsWith('/')?item.path:(item.path+'.html')}`">{{ item.title }}</router-link>
                 </li>
@@ -50,21 +50,21 @@ const FirstComponent = computed(() => {
 })
 
 const active = ref()
-// const language = ref("zh")
-// const route = useRoute()
-// watchEffect(() => {
-//     const [, lang] = route.path.match(/\/(.*?)\//) as string[] ?? []
-//     if(lang){
-//         language.value = lang
-//     }
-//     if (route.params?.comp) {
-//         active.value = route.params.comp as string
-//     }
-//     if (route.params?.language) {
-//         language.value = route.params.language as string
-//     }
+const language = ref("zh")
+const route = useRoute()
+watchEffect(() => {
+    const [, lang] = route.path.match(/\/(.*?)\//) as string[] ?? []
+    if(lang){
+        language.value = lang
+    }
+    if (route.params?.comp) {
+        active.value = route.params.comp as string
+    }
+    if (route.params?.language) {
+        language.value = route.params.language as string
+    }
     
-// })
+})
 </script>
 
 <style lang="scss" scoped>

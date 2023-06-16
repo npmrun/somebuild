@@ -6,8 +6,8 @@
         "dist"
     ],
     "scripts": {
-        "dev": "somebuild docs --watch",
-        "build-site": "somebuild docs",
+        "dev": "somebuild preview --watch",
+        "build-site": "somebuild preview",
         "build": "rimraf dist && somebuild build"
     },
     "buildinfo": {
@@ -27,6 +27,6 @@
     "devDependencies": {
         "somebuild": "workspace:*",
         "@somebuild/build-components-vue3": "workspace:*",
-        "@somebuild/build-docs": "workspace:*"
+        "@somebuild/build-preview": "workspace:*"
     }
 }

@@ -19,9 +19,9 @@ $btn-cls: '#{$fe-prefix}-button';
     }
     outline: 0;
     // 相同按钮间隔
-    + & {
-        margin-left: 5px;
-    }
+    // + & {
+    //     margin-left: 5px;
+    // }
     transition: all;
     transition-timing-function: $easing;
     transition-duration: $speed;

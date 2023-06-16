@@ -19,6 +19,7 @@ interface IBuildInfoComponentsVue3 {
     entry: string
     theme: string
     singleTheme: string
+    componentsName: string
 }
 
 

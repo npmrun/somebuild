@@ -297,10 +297,10 @@ export async function getDevConfig(
                     resolveId(id, importer, options) {
                         // http://localhost:3366/zh/aaas 记录一下，得这个访问才能获取到文档
                         if (id.includes("?fuck")) {
-                            console.log(id);
+                            // console.log(id);
 
                             const [_, language, p] = id.match(/\/(.*?)\/(.*?)\?fuck/)
-                            console.log(path.resolve(cwdDir, p));
+                            // console.log(path.resolve(cwdDir, p));
                             return path.resolve(cwdDir, p)
                         }
                         // console.log(1, id);
