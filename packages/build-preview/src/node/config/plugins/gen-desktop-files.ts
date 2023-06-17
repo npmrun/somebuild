@@ -181,8 +181,7 @@ export async function genDesktopFiles(): Promise<Plugin> {
         transform(code, id) {
             if (
                 id.includes(normalizePath(cwdDir)) ||
-                (id.includes(normalizePath(clientDir)) &&
-                    !id.includes('node_modules'))
+                (id.includes(normalizePath(clientDir))) // && !id.includes('node_modules')//TOOD 打包后这里肯定是在node_modules中
             ) {
                 const allDefine = myConfig.config.define ?? {}
                 for (const key in allDefine) {
