@@ -6,7 +6,7 @@
     "navbar": [
         {
             "title": "组件",
-            "path": "zh/button"
+            "path": "/zh/button"
         }
     ],
     "action": [

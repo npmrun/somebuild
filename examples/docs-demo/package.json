@@ -30,7 +30,7 @@
     },
     "devDependencies": {
         "@somebuild/build-components-vue3": "workspace:*",
-        "@somebuild/build-docs": "workspace:*",
+        "@somebuild/build-preview": "workspace:*",
         "@somebuild/build-lib": "workspace:*",
         "somebuild": "workspace:*"
     }

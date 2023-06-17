@@ -1,5 +1,5 @@
 import { defineRootConfig } from 'somebuild'
-import { defineConfig as defineDocsConfig } from '@somebuild/build-docs'
+import { defineConfig as definePreConfig } from '@somebuild/build-preview'
 import { defineConfig as defineCompsonfig } from '@somebuild/build-components-vue3'
 
 export default defineRootConfig({
@@ -12,7 +12,7 @@ export default defineRootConfig({
             ]
         }
     }),
-    docs: defineDocsConfig({
+    preview: definePreConfig({
         alias: {
             '@': './src',
             'test-vue3-ui/dist': './src',

@@ -156,12 +156,12 @@ importers:
       '@somebuild/build-components-vue3':
         specifier: workspace:*
         version: link:../../packages/build-components-vue3
-      '@somebuild/build-docs':
-        specifier: workspace:*
-        version: link:../../packages/build-docs
       '@somebuild/build-lib':
         specifier: workspace:*
         version: link:../../packages/build-lib
+      '@somebuild/build-preview':
+        specifier: workspace:*
+        version: link:../../packages/build-preview
       somebuild:
         specifier: workspace:*
         version: link:../../packages/somebuild

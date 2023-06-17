@@ -47,6 +47,7 @@ export async function getSomeBuildConfigAsync() {
 interface IRootConfig {
     lib: any
     docs: any
+    preview: any
     'component-vue3': any
     'components-vue3': any
 }

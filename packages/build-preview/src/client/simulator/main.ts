@@ -14,7 +14,6 @@ const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
     routes: simulatorRoutes,
 })
-console.log(simulatorRoutes);
 
 declare global {
     interface Window {
