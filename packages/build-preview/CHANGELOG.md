@@ -1,5 +1,19 @@
 # @somebuild/build-preview
 
+## 0.0.6
+
+### Patch Changes
+
+- release
+  - somebuild@0.0.11
+
+## 0.0.5
+
+### Patch Changes
+
+- release
+  - somebuild@0.0.11
+
 ## 0.0.4
 
 ### Patch Changes
